@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 12:03:58 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/09 12:32:53 by neda-sil         ###   ########.fr       */
+/*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
+/*   Updated: 2026/07/09 13:37:38 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef CUB3D_H
+# define CUB3D_H
 
-int	main(int ac, char **av)
-{
-	printf("bonjour %d %s\n", ac, av[0]);
-}
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdbool.h>
+#include "lib/lib.h"
+#include "minilibx-linux/mlx.h"
+
+#endif
