@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_malloc_gc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/09 14:18:56 by malaimo          ###   ########.fr       */
+/*   Created: 2026/03/11 14:53:19 by malaimo           #+#    #+#             */
+/*   Updated: 2026/07/09 14:36:41 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../../includes/cub3d.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include "lib/lib.h"
-#include "minilibx-linux/mlx.h"
-#include "includes_h/gc.h"
+void	*ft_malloc_gc(size_t nmemb, size_t size, t_gc **gc)
+{
+	void		*tab;
+	long int	n2;
+	long int	s2;
 
-#endif
+	n2 = (long int)nmemb;
+	s2 = (long int)size;
+	if ((nmemb > SIZE_MAX / size) || (n2 < 0 && s2 < 0))
+		return (NULL);
+	tab = (void *)malloc(nmemb * size);
+	if (!tab)
+		ft_error_gc("", gc, 1);
+	if (ft_lstadd_gc(gc, tab))
+		ft_error_gc("", gc, 1);
+	return (tab);
+}

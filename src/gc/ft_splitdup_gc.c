@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_splitdup_gc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/09 14:18:56 by malaimo          ###   ########.fr       */
+/*   Created: 2026/03/18 16:31:57 by jdelmott          #+#    #+#             */
+/*   Updated: 2026/07/09 14:36:41 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../../includes/cub3d.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include "lib/lib.h"
-#include "minilibx-linux/mlx.h"
-#include "includes_h/gc.h"
+char	**ft_splitdup_gc(char **str, t_gc **gc)
+{
+	int		i;
+	char	**cpy;
 
-#endif
+	i = 0;
+	if (!str)
+		return (NULL);
+	cpy = ft_calloc_gc(sizeof(char *), (ft_splitlen(str) + 1), gc);
+	while (str[i])
+	{
+		cpy[i] = ft_strdup_gc(str[i], gc);
+		i++;
+	}
+	return (cpy);
+}

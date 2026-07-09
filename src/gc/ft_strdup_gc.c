@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_strdup_gc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/09 14:18:56 by malaimo          ###   ########.fr       */
+/*   Created: 2026/03/11 14:54:02 by malaimo           #+#    #+#             */
+/*   Updated: 2026/07/09 14:36:41 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../../includes/cub3d.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include "lib/lib.h"
-#include "minilibx-linux/mlx.h"
-#include "includes_h/gc.h"
+char	*ft_strdup_gc(const char *s, t_gc **gc)
+{
+	char	*dest;
+	size_t	len_s;
 
-#endif
+	len_s = ft_strlen(s);
+	dest = ft_calloc_gc((len_s + 1), sizeof(char), gc);
+	if (!dest)
+		return (NULL);
+	dest[len_s] = '\0';
+	while (len_s--)
+		dest[len_s] = s[len_s];
+	return (dest);
+}

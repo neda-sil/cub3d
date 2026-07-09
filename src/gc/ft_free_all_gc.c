@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_free_all_gc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/09 14:18:56 by malaimo          ###   ########.fr       */
+/*   Created: 2026/03/11 14:53:27 by malaimo           #+#    #+#             */
+/*   Updated: 2026/07/09 14:36:41 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../../includes/cub3d.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include "lib/lib.h"
-#include "minilibx-linux/mlx.h"
-#include "includes_h/gc.h"
+void	ft_free_all_gc(t_gc **gc)
+{
+	t_gc	*temp;
+	t_gc	*tp;
 
-#endif
+	if (!*gc)
+		return ;
+	temp = (*gc);
+	while (temp)
+	{
+		tp = temp->next;
+		if (temp->content)
+			free(temp->content);
+		if (temp)
+			free(temp);
+		temp = tp;
+	}
+	*gc = NULL;
+}

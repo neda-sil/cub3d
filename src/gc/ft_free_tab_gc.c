@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_free_tab_gc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/09 14:18:56 by malaimo          ###   ########.fr       */
+/*   Created: 2026/04/16 09:46:32 by malaimo           #+#    #+#             */
+/*   Updated: 2026/07/09 14:36:41 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../../includes/cub3d.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include "lib/lib.h"
-#include "minilibx-linux/mlx.h"
-#include "includes_h/gc.h"
+int	ft_free_tab_gc(char **tab, t_gc **gc)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (tab[i])
+	{
+		if (ft_delone_gc(tab[i], gc))
+			return (1);
+		i++;
+	}
+	if (ft_delone_gc(tab, gc))
+		return (1);
+	return (0);
+}

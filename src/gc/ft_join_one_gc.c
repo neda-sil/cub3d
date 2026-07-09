@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_join_one_gc.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/09 14:18:56 by malaimo          ###   ########.fr       */
+/*   Created: 2026/04/30 14:03:30 by jdelmott          #+#    #+#             */
+/*   Updated: 2026/07/09 14:36:41 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../../includes/cub3d.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include "lib/lib.h"
-#include "minilibx-linux/mlx.h"
-#include "includes_h/gc.h"
+char	*ft_join_one_gc(char const *s, char const c, t_gc **gc)
+{
+	char	*new;
+	size_t	len_s;
+	size_t	i;
 
-#endif
+	i = 0;
+	if (!s || !c)
+		return (NULL);
+	len_s = ft_strlen(s);
+	new = ft_calloc_gc((len_s + 2), sizeof(char), gc);
+	if (!new)
+		return (NULL);
+	while (s[i])
+	{
+		new[i] = s[i];
+		i++;
+	}
+	new[i] = c;
+	i++;
+	new[i] = '\0';
+	return (new);
+}

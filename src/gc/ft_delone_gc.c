@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_delone_gc.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/09 14:18:56 by malaimo          ###   ########.fr       */
+/*   Created: 2026/03/18 15:07:53 by jdelmott          #+#    #+#             */
+/*   Updated: 2026/07/09 14:36:41 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "../../includes/cub3d.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include "lib/lib.h"
-#include "minilibx-linux/mlx.h"
-#include "includes_h/gc.h"
+int	ft_delone_gc(void *target, t_gc **gc)
+{
+	t_gc	*temp;
 
-#endif
+	temp = *gc;
+	while (temp && temp->content != target)
+		temp = temp->next;
+	if (!temp)
+		return (1);
+	if (temp->previous)
+		temp->previous->next = temp->next;
+	else
+		*gc = temp->next;
+	if (temp->next)
+		temp->next->previous = temp->previous;
+	if (temp->content)
+		free(temp->content);
+	free(temp);
+	return (0);
+}
