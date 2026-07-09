@@ -1,0 +1,121 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/02 16:54:11 by neda-sil          #+#    #+#             */
+/*   Updated: 2026/01/29 15:47:30 by neda-sil         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
+
+/* Check if a new line is found in the string :
+ * 1 if found, else 0 */
+int	found_nl(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+/* Joins 2 strings into one */
+char	*ft_strjoin_gnl(const char *s1, const char *s2)
+{
+	char	*s;
+	int		len;
+	int		i;
+
+	len = 0;
+	if (!s1 && !s2)
+		return (NULL);
+	while (s1 && s1[len])
+		len++;
+	i = 0;
+	while (s2 && s2[i])
+		i++;
+	s = ft_calloc(len + i + 1, sizeof(char));
+	if (!s)
+		return (NULL);
+	len = -1;
+	while (s1 && s1[++len])
+		s[len] = s1[len];
+	i = -1;
+	while (s2 && s2[++i])
+		s[len + i] = s2[i];
+	return (s);
+}
+
+/* Duplicates a string into another using malloc */
+char	*ft_strdup_gnl(const char *s1)
+{
+	char	*s2;
+	int		i;
+
+	if (!s1)
+		return (ft_strdup_gnl(""));
+	i = 0;
+	while (s1[i])
+		i++;
+	s2 = ft_calloc(i + 1, sizeof(char));
+	if (!s2)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	return (s2);
+}
+
+/* Allocates "nmemb" places of size "size" using malloc
+ * then put '\0' characters in destination */
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void			*r;
+	unsigned char	*p;
+	size_t			total;
+
+	total = nmemb * size;
+	r = malloc(total);
+	if (!r)
+		return (NULL);
+	p = (unsigned char *)r;
+	while (total != 0)
+	{
+		*p = '\0';
+		p++;
+		total--;
+	}
+	return (r);
+}
+
+/* Free strings that was given on arguments */
+void	free_strs(char **str, char **str2, char **str3)
+{
+	if (str && *str)
+	{
+		free(*str);
+		*str = NULL;
+	}
+	if (str2 && *str2)
+	{
+		free(*str2);
+		*str2 = NULL;
+	}
+	if (str3 && *str3)
+	{
+		free(*str3);
+		*str3 = NULL;
+	}
+}
