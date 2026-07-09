@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/09 14:18:56 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/09 14:43:19 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include "lib/lib.h"
-#include "minilibx-linux/mlx.h"
 #include "includes_h/gc.h"
+#include "minilibx-linux/mlx.h"
 
 #endif

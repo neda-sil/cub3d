@@ -1,20 +1,45 @@
 #______________ FILES ______________#
 
-FILES		=	src/main.c
+FILES		=	src/main.c						\
+				src/gc/ft_calloc_gc.c			\
+				src/gc/ft_delone_gc.c			\
+				src/gc/ft_error_gc.c			\
+				src/gc/ft_free_all_gc.c			\
+				src/gc/ft_free_tab_gc.c			\
+				src/gc/ft_gnl_gc.c				\
+				src/gc/ft_itoa_gc.c				\
+				src/gc/ft_join_one_gc.c			\
+				src/gc/ft_lstadd_gc.c			\
+				src/gc/ft_malloc_gc.c			\
+				src/gc/ft_renew_gc.c			\
+				src/gc/ft_renew_one_gc.c		\
+				src/gc/ft_scan_gc.c				\
+				src/gc/ft_split_gc.c			\
+				src/gc/ft_split_sentence_gc.c	\
+				src/gc/ft_splitdup_gc.c			\
+				src/gc/ft_strdup_gc.c			\
+				src/gc/ft_strjoin_gc.c			\
+				src/gc/ft_substr_gc.c
 
 #______________ NAMES ______________#
 
 NAME		=	cub3D
+
 CC			=	cc
 FLAGS		=	-Wall -Werror -Wextra -lm
+
+OBJS        =   $(FILES:src/%.c=$(OBJ_DIR)%.o)
 OBJ_DIR		=	objs/
-OBJS		=	$(addprefix $(OBJ_DIR), $(notdir $(FILES:.c=.o)))
+SRC_DIR		=	src/
+
 MLX_DIR		=	minilibx-linux
 MLX_FLAGS	=	-L$(MLX_DIR) -lmlx -lXext -lX11
 MLX_URL		=	https://github.com/42Paris/minilibx-linux.git
 INCLUDES	=	-I. -I$(MLX_DIR) -I$(LIB_DIR)
+
 LIB_DIR		=	lib
 LIBFT		=	$(LIB_DIR)/lib.a
+
 YELLOW		=	\033[0;33m
 GREEN		=	\033[0;32m
 RED			=	\033[0;31m
@@ -36,7 +61,7 @@ $(NAME)		:	$(OBJS)
 	@printf "$(GREEN)cub3D compiled$(RESET)\n"
 
 $(OBJ_DIR)%.o	:	src/%.c
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean		:
