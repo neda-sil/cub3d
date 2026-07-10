@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/10 15:10:24 by neda-sil         ###   ########.fr       */
+/*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
+/*   Updated: 2026/07/10 14:34:24 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-/* Defaults */
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdbool.h>
-# include <fcntl.h>
-# include <errno.h>
+typedef struct s_data
+{
+	char	**paths_to_textures;
+}			t_data;
 
-/* Usefulls */
-# include "../lib/lib.h"
-# include "../minilibx-linux/mlx.h"
-
-/* Project specifics */
-# include "includes_h/gc.h"
-# include "includes_h/parsing.h"
-# include "includes_h/structs.h"
 
 #endif

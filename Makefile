@@ -15,11 +15,10 @@ FILES		=	src/main.c						\
 				src/gc/ft_renew_one_gc.c		\
 				src/gc/ft_scan_gc.c				\
 				src/gc/ft_split_gc.c			\
-				src/gc/ft_split_sentence_gc.c	\
-				src/gc/ft_splitdup_gc.c			\
 				src/gc/ft_strdup_gc.c			\
 				src/gc/ft_strjoin_gc.c			\
-				src/gc/ft_substr_gc.c
+				src/gc/ft_substr_gc.c			\
+				src/parsing/parsing.c
 
 #______________ NAMES ______________#
 
@@ -47,12 +46,15 @@ RESET		=	\033[0m
 
 #______________ RULES ______________#
 
-all			:	$(MLX_DIR) $(NAME)
+all			:	$(NAME)
+
+mlx			:
+	@git clone $(MLX_URL) $(MLX_DIR)
 
 $(MLX_DIR)	:
 	@git clone $(MLX_URL) $(MLX_DIR)
 
-$(NAME)		:	$(OBJS)
+$(NAME)		:	$(MLX_DIR) $(OBJS)
 	@make -C $(LIB_DIR)
 	@printf "$(YELLOW)compiling Minilibx$(RESET)\n"
 	@make -C $(MLX_DIR) --no-print-directory
@@ -78,4 +80,4 @@ fclean		:	clean
 
 re			:	fclean all
 
-.PHONY		:	all clean fclean re
+.PHONY		:	all clean fclean re mlx

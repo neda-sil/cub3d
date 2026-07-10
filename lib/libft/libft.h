@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:48:09 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/10 12:09:26 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/10 14:38:20 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 /*rajout marius*/
-int	is_there(const char okay, char *look_inside_me);
+int		is_there(const char okay, char *look_inside_me);
 size_t	ft_splitlen(char **str);
-
 
 #endif

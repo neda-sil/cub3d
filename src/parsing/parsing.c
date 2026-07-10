@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_splitdup_gc.c                                   :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/18 16:31:57 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/07/09 14:36:41 by malaimo          ###   ########.fr       */
+/*   Created: 2026/07/10 14:57:24 by neda-sil          #+#    #+#             */
+/*   Updated: 2026/07/10 15:13:29 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-char	**ft_splitdup_gc(char **str, t_gc **gc)
+/* checks in 'file_name' if 'ext' are in the last 'n' chars */
+bool	check_extension(char *file_name, char *ext, int n)
 {
-	int		i;
-	char	**cpy;
-
-	i = 0;
-	if (!str)
-		return (NULL);
-	cpy = ft_calloc_gc(sizeof(char *), (ft_splitlen(str) + 1), gc);
-	while (str[i])
-	{
-		cpy[i] = ft_strdup_gc(str[i], gc);
-		i++;
-	}
-	return (cpy);
+	if (ft_strlen(file_name) <= (size_t)n)
+		return (false);
+	return (ft_strnstr(file_name + (ft_strlen(file_name) - n), ext, n));
 }
