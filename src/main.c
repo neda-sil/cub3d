@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:03:58 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/10 17:18:58 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/10 22:44:10 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,11 @@ int	main(int ac, char **av)
 	ft_bzero(data, sizeof(t_data));
 	data->fd = fd;
 	parsing(data);
+	printf("NO %s\n", data->NO);
+	printf("SO %s\n", data->SO);
+	printf("WE %s\n", data->WE);
+	printf("EA %s\n", data->EA);
+	printf("F %d,%d,%d\n", data->F[0], data->F[1], data->F[2]);
+	printf("C %d,%d,%d\n", data->C[0], data->C[1], data->C[2]);
+	close(data->fd);
 }
