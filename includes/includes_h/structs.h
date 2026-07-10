@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/10 14:34:24 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/10 15:45:26 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 
 typedef struct s_data
 {
-	char	**paths_to_textures;
+	int		fd;
+	char	*NO;
+	char	*SO;
+	char	*WE;
+	char	*EA;
+	// t_gc	*gc;
 }			t_data;
-
 
 #endif

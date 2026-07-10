@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:46:35 by neda-sil          #+#    #+#             */
-/*   Updated: 2025/11/14 07:06:57 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/10 17:58:14 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s)
 	if (!dst)
 		return (NULL);
 	i = 0;
-	while (s[i])
+	while (s[i] && s[i] != '\n')
 	{
 		dst[i] = s[i];
 		i++;

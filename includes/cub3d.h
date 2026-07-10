@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/10 15:10:24 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/10 16:54:06 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 # include "../minilibx-linux/mlx.h"
 
 /* Project specifics */
+# include "includes_h/structs.h"
 # include "includes_h/gc.h"
 # include "includes_h/parsing.h"
-# include "includes_h/structs.h"
 
 #endif

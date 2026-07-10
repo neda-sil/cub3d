@@ -18,6 +18,7 @@ FILES		=	src/main.c						\
 				src/gc/ft_strdup_gc.c			\
 				src/gc/ft_strjoin_gc.c			\
 				src/gc/ft_substr_gc.c			\
+				src/parsing/parse_textures.c	\
 				src/parsing/parsing.c
 
 #______________ NAMES ______________#
