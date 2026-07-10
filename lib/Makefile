@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+         #
+#    By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/13 14:48:16 by neda-sil          #+#    #+#              #
-#    Updated: 2026/07/09 12:41:56 by neda-sil         ###   ########.fr        #
+#    Updated: 2026/07/10 12:10:16 by malaimo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,9 @@ FILES	=	libft/ft_atoi					\
 	  		ftprintf/util/hexa				\
 	  		ftprintf/util/print_adress		\
 			gnl/get_next_line				\
-			gnl/get_next_line_utils
+			gnl/get_next_line_utils			\
+			libft/is_there					\
+			libft/ft_splitlen
 
 #______________ NAMES ______________#
 
