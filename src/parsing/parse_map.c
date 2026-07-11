@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/11 14:42:42 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/11 16:14:01 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,24 @@ char	*one_line_map(t_data *data)
 void	parse_map(t_data *data)
 {
 	char	*line;
-	int		i;
-	int		j;
+	// int		i;
+	// int		j;
 
 	line = NULL;
 	line = one_line_map(data);
 	data->map = ft_split(line, '\n');
-	i = 0;
-	while (data->map[i])
-	{
-		j = 0;
-		while (data->map[i][j])
-		{
-			// if (!check_caracter(data->map[i][j]))
-			// 	return error
-			j++;
-		}
-	}
+	// i = 0;
+	// while (data->map[i])
+	// {
+	// 	j = 0;
+	// 	while (data->map[i][j])
+	// 	{
+	// 		// if (c == '1' || c == '0' || c == 'N' || c == 'S'
+	// 		// 	|| c == 'W' || c == 'E')
+	// 		// 	return error
+	// 		j++;
+	// 	}
+	// }
 	// if (!check_border(data->map))
 	// 	return error;
 }

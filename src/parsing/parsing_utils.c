@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 18:51:22 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/11 14:48:23 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/11 16:14:12 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,63 @@ int	check_color(char *color)
 	return (0);
 }
 
-/* checks if the caracter 'c' is a valid one */
-bool	check_caracter(int c)
+static bool	check_first_and_last_line(char *line)
 {
-	return (c == '1' || c == '0' || c == 'N' || c == 'S'
-		|| c == 'W' || c == 'E');
+	int	i;
+
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] != EMPTY || line[i] != WALL)
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+static bool	check_line(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i] && line[i] == EMPTY)
+		i++;
+	if (i > 0)
+	{
+		if (line[i - 1] == EMPTY && line[i] != WALL)
+			return (false);
+	}
+	else
+		if (line[i] != WALL)
+			return (false);
+	while (line[i] && line[i] != EMPTY)
+		i++;
+	if (line[i - 1] != WALL)
+		return (false);
+	if (line[i])
+		return (check_line(line + i));
+	return (true);
 }
 
 /* checks if the borders are closed */
 bool	check_border(char **map)
 {
 	int	i;
-	int	j;
 
 	i = 0;
 	while (map[i])
 	{
-		j = 0;
-		while (map[i][j])
+		if (i == 0 || !map[i + 1])
 		{
-			if (i == 0)
-			{
-				// if (map[i][j] != WALL || map[i][j] != EMPTY)
-				// 	return error
-				j++;
-			}
+			if (!check_first_and_last_line(map[i]))
+				return (false);
 		}
+		else
+		{
+			if (!check_line(map[i]))
+				return (false);
+		}
+		i++;
 	}
+	return (true);
 }
