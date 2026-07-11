@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 14:57:24 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/10 19:21:10 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/11 13:58:15 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ void	parsing(t_data *data)
 		// // erreur
 	parse_textures(data);
 	parse_colors(data);
+	parse_map(data);
 }

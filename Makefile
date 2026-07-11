@@ -19,6 +19,7 @@ FILES		=	src/main.c						\
 				src/gc/ft_strjoin_gc.c			\
 				src/gc/ft_substr_gc.c			\
 				src/parsing/parse_first_lines.c	\
+				src/parsing/parse_map.c			\
 				src/parsing/parsing_utils.c		\
 				src/parsing/parsing.c
 
