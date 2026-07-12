@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:03:58 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 14:56:25 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/12 16:18:49 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 	else if (!check_extension(av[1], ".cub", 4))
 		return (ft_printf("%s", MAP_EXTENSION), EXIT_FAILURE);
 	fd = open(av[1], O_RDONLY);
-	if (fd <= 0)
+	if (fd < 0)
 		return (ft_printf("%s", NOT_FOUND), EXIT_FAILURE);
 	data = malloc(sizeof(t_data));
 	if (!data)

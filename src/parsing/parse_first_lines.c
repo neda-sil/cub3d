@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:38:35 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 14:50:53 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/12 16:12:55 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	put_textures(char **loc, char *line, char *searched, t_data *data)
 	int	i;
 
 	if (!(line[0] == searched[0] && line[1] == searched[1]))
-		return ;
+		handle_exit(data, WRONG_ORDER_TEXTURE);
 	if (!check_extension(line, ".xpm", 5))
 		handle_exit(data, TEXTURE_EXTENSION);
 	i = 2;
@@ -54,14 +54,14 @@ void	parse_textures(t_data *data)
 	}
 }
 
-static void	put_color(int *color, char *line, char searched)
+static void	put_color(int *color, char *line, char searched, t_data *data)
 {
 	int	i;
 	int	pos;
 	int	num;
 
 	if (line[0] != searched)
-		return ;
+		handle_exit(data, WRONG_ORDER_COLOR);
 	i = 1;
 	while (line[i] == ' ' || line[i] == '\t')
 		i++;
@@ -69,11 +69,17 @@ static void	put_color(int *color, char *line, char searched)
 	while (line[i] && num < 3)
 	{
 		pos = check_color(line + i);
-		if (!pos)
-			return ;
+		if (pos == -1)
+			handle_exit(data, WRONG_RANGE);
+		if (pos == -2)
+			handle_exit(data, UNIDENTIFIED_CHAR_TEXTURE);
 		color[num++] = ft_atoi(line + i);
+		if (color[num - 1] > 255)
+			handle_exit(data, WRONG_RANGE);
 		i += pos + 1;
 	}
+	if (line[i])
+		handle_exit(data, UNIDENTIFIED_CHAR_TEXTURE);
 }
 
 void	parse_colors(t_data *data)
@@ -88,9 +94,9 @@ void	parse_colors(t_data *data)
 		while (!line || line[0] == '\n')
 			line = ft_gnl_gc(data->fd, &data->gc);
 		if (i == 0)
-			put_color(data->F, line, 'F');
+			put_color(data->F, line, 'F', data);
 		if (i == 1)
-			put_color(data->C, line, 'C');
+			put_color(data->C, line, 'C', data);
 		line = NULL;
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:11:19 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 14:36:11 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/12 16:09:34 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,7 @@ void	handle_exit(t_data *data, char *message)
 	if (message)
 	{
 		ft_printf("%s", message);
-		close(0);
-		close(1);
-		close(2);
 		exit(EXIT_FAILURE);
 	}
-	close(0);
-	close(1);
-	close(2);
 	exit(EXIT_SUCCESS);
 }

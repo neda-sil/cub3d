@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 18:51:22 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/11 21:03:52 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/12 16:50:57 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,76 +26,55 @@ int	check_color(char *color)
 	int	i;
 
 	i = 0;
-	while (color[i] && i < 4)
+	while (color[i] && i < 5)
 	{
 		if (!ft_isdigit(color[i]))
 		{
-			if (color[i] != ',' && color[i] != '\n')
-				return (0);
-			return (i);
+			if (color[i] == '-')
+				return (-1);
+			if (color[i] == ',' || color[i] == '\n')
+				return (i);
+			return (-2);
 		}
 		i++;
 	}
 	return (0);
 }
 
-static bool	check_first_and_last_line(char *line)
+static char	get_char(char **map, int row, int col)
 {
-	int	i;
-
-	i = 0;
-	while (line[i])
-	{
-		if (line[i] != EMPTY && line[i] != WALL)
-			return (false);
-		i++;
-	}
-	return (true);
-}
-
-static bool	check_line(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (line[i] && line[i] == EMPTY)
-		i++;
-	if (i > 0)
-	{
-		if (line[i - 1] == EMPTY && line[i] != WALL)
-			return (false);
-	}
-	else
-		if (line[i] != WALL)
-			return (false);
-	while (line[i] && line[i] != EMPTY)
-		i++;
-	if (line[i - 1] != WALL)
-		return (false);
-	if (line[i])
-		return (check_line(line + i));
-	return (true);
+	if (row < 0 || !map[row])
+		return (EMPTY);
+	if (col < 0 || col >= (int)ft_strlen(map[row]))
+		return (EMPTY);
+	return (map[row][col]);
 }
 
 /* checks if the borders are closed */
 bool	check_border(char **map)
 {
-	int	i;
+	int	r;
+	int	c;
 
-	i = 0;
-	while (map[i])
+	r = 0;
+	while (map[r])
 	{
-		if (i == 0 || !map[i + 1])
+		c = 0;
+		while (map[r][c])
 		{
-			if (!check_first_and_last_line(map[i]))
-				return (false);
+			if (map[r][c] == EMPTY || map[r][c] == WALL)
+				c++;
+			else
+			{
+				if (get_char(map, r - 1, c) == EMPTY
+					|| get_char(map, r + 1, c) == EMPTY
+					|| get_char(map, r, c - 1) == EMPTY
+					|| get_char(map, r, c + 1) == EMPTY)
+					return (false);
+				c++;
+			}
 		}
-		else
-		{
-			if (!check_line(map[i]))
-				return (false);
-		}
-		i++;
+		r++;
 	}
 	return (true);
 }

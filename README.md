@@ -13,6 +13,7 @@ Je vais ecrire ce que je fais ici comme ca tu pourras suivre a ton prochain pull
 
 - il reste encore quelques verifs a faire, mais jusqu'ici y a aucun leaks mdrr
 
+- le parsing est completement fini, aucun leaks a deplorer, si tu as besoin d'explications, on verra ca ensemble quand on se voit, je te laisse faire le parsing des signaux !
 
 quand j'y pense, je te passe cette fonction (si jamais tu l'as pas) pour avoir les codes de touches :
 

@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 14:55:54 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/12 16:50:11 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@ static void	check_newlines(t_data *data, char *line)
 	i = 0;
 	while (line[i])
 	{
-		if ((line[i] == '\n' && line[i + 1] == '\n')
-			|| (line[i] == '\n' && line[i + 1] == '\0'))
+		if ((line[i] == '\n' && line[i + 1] == '\n'))
 			handle_exit(data, "consecutive newlines (check the last line)");
 		i++;
 	}
 }
 
-char	*one_line_map(t_data *data)
+static char	*one_line_map(t_data *data)
 {
 	char	*line;
 	char	*gnl;
@@ -71,7 +70,7 @@ void	parse_map(t_data *data)
 				&& data->map[i][j] != 'N' && data->map[i][j] != 'S'
 				&& data->map[i][j] != 'W' && data->map[i][j] != 'E'
 				&& data->map[i][j] != ' ')
-				handle_exit(data, UNIDENTIFIED_CHAR);
+				handle_exit(data, UNIDENTIFIED_CHAR_MAP);
 			j++;
 		}
 		i++;
