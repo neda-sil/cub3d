@@ -6,29 +6,25 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/11 16:14:01 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/12 14:55:54 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-// static void	check_newlines(t_data *data, char *line)
-// {
-// 	int	i;
+static void	check_newlines(t_data *data, char *line)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (line[i])
-// 	{
-// 		if ((line[i] == '\n' && line[i + 1] == '\n')
-// 			|| (line[i] == '\n' && line[i + 1] == '\0'))
-// 		{
-// 			free(line);
-// 			return ;
-// 			// handle_error(data, "consecutive newlines (check the last line)");
-// 		}
-// 		i++;
-// 	}
-// }
+	i = 0;
+	while (line[i])
+	{
+		if ((line[i] == '\n' && line[i + 1] == '\n')
+			|| (line[i] == '\n' && line[i + 1] == '\0'))
+			handle_exit(data, "consecutive newlines (check the last line)");
+		i++;
+	}
+}
 
 char	*one_line_map(t_data *data)
 {
@@ -36,7 +32,7 @@ char	*one_line_map(t_data *data)
 	char	*gnl;
 	char	*tmp;
 
-	gnl = get_next_line(data->fd);
+	gnl = ft_gnl_gc(data->fd, &data->gc);
 	if (!gnl)
 		return (NULL);
 	line = NULL;
@@ -44,42 +40,42 @@ char	*one_line_map(t_data *data)
 	while (gnl)
 	{
 		if (!line)
-			line = ft_strdup(gnl);
+			line = ft_strdup_gc(gnl, &data->gc);
 		else
 		{
 			tmp = line;
-			line = ft_strjoin(tmp, gnl);
-			free(tmp);
+			line = ft_strjoin_gc(tmp, gnl, &data->gc);
 		}
-		free(gnl);
-		gnl = get_next_line(data->fd);
+		gnl = ft_gnl_gc(data->fd, &data->gc);
 	}
-	close(data->fd);
-	// check_newlines(data->map, line);
+	check_newlines(data, line);
 	return (line);
 }
 
 void	parse_map(t_data *data)
 {
 	char	*line;
-	// int		i;
-	// int		j;
+	int		i;
+	int		j;
 
 	line = NULL;
 	line = one_line_map(data);
-	data->map = ft_split(line, '\n');
-	// i = 0;
-	// while (data->map[i])
-	// {
-	// 	j = 0;
-	// 	while (data->map[i][j])
-	// 	{
-	// 		// if (c == '1' || c == '0' || c == 'N' || c == 'S'
-	// 		// 	|| c == 'W' || c == 'E')
-	// 		// 	return error
-	// 		j++;
-	// 	}
-	// }
-	// if (!check_border(data->map))
-	// 	return error;
+	data->map = ft_split_gc(line, '\n', &data->gc);
+	i = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] != '1' && data->map[i][j] != '0'
+				&& data->map[i][j] != 'N' && data->map[i][j] != 'S'
+				&& data->map[i][j] != 'W' && data->map[i][j] != 'E'
+				&& data->map[i][j] != ' ')
+				handle_exit(data, UNIDENTIFIED_CHAR);
+			j++;
+		}
+		i++;
+	}
+	if (!check_border(data->map))
+		handle_exit(data, BORDER_ERROR);
 }

@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/10 14:57:24 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/11 22:54:08 by neda-sil         ###   ########.fr       */
+/*   Created: 2026/07/12 14:11:19 by neda-sil          #+#    #+#             */
+/*   Updated: 2026/07/12 14:36:11 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+#include "../includes/cub3d.h"
 
-// ========= il faut tout mettre dans le gc plus tard ========= //
-void	parsing(t_data *data)
+void	handle_exit(t_data *data, char *message)
 {
-	parse_textures(data);
-	parse_colors(data);
-	parse_map(data);
+	ft_free_all_gc(&data->gc);
+	close(data->fd);
+	free(data);
+	if (message)
+	{
+		ft_printf("%s", message);
+		close(0);
+		close(1);
+		close(2);
+		exit(EXIT_FAILURE);
+	}
+	close(0);
+	close(1);
+	close(2);
+	exit(EXIT_SUCCESS);
 }

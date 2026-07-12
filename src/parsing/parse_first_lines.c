@@ -6,34 +6,30 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:38:35 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/10 22:43:03 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/12 14:50:53 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void	put_textures(char **loc, char *line, char *searched)
+static void	put_textures(char **loc, char *line, char *searched, t_data *data)
 {
 	int	i;
 
 	if (!(line[0] == searched[0] && line[1] == searched[1]))
 		return ;
 	if (!check_extension(line, ".xpm", 5))
-	{
-		ft_printf("Error: wrong extension for an image\n");
-		return ;
-	}
+		handle_exit(data, TEXTURE_EXTENSION);
 	i = 2;
 	while (line[i] == ' ' || line[i] == '\t')
 		i++;
-	*loc = ft_strdup(line + i);
+	if (line[ft_strlen(line) - 1] == '\n')
+		line[ft_strlen(line) - 1] = '\0';
+	*loc = ft_strdup_gc(line + i, &data->gc);
 	if (!*loc)
-		return ;
-	// if (i <= 2)
-	// 	return error
+		handle_exit(data, MALLOC_ERROR);
 }
 
-// ========= get_next_line -> ft_gnl_gc ============ //
 void	parse_textures(t_data *data)
 {
 	int		i;
@@ -44,20 +40,18 @@ void	parse_textures(t_data *data)
 	while (i < 4)
 	{
 		while (!line || line[0] == '\n')
-			line = get_next_line(data->fd);
+			line = ft_gnl_gc(data->fd, &data->gc);
 		if (i == 0)
-			put_textures(&data->NO, line, "NO");
+			put_textures(&data->NO, line, "NO", data);
 		if (i == 1)
-			put_textures(&data->SO, line, "SO");
+			put_textures(&data->SO, line, "SO", data);
 		if (i == 2)
-			put_textures(&data->WE, line, "WE");
+			put_textures(&data->WE, line, "WE", data);
 		if (i == 3)
-			put_textures(&data->EA, line, "EA");
-		free(line);
+			put_textures(&data->EA, line, "EA", data);
 		line = NULL;
 		i++;
 	}
-	free(line);
 }
 
 static void	put_color(int *color, char *line, char searched)
@@ -70,9 +64,7 @@ static void	put_color(int *color, char *line, char searched)
 		return ;
 	i = 1;
 	while (line[i] == ' ' || line[i] == '\t')
-	{
 		i++;
-	}
 	num = 0;
 	while (line[i] && num < 3)
 	{
@@ -94,14 +86,12 @@ void	parse_colors(t_data *data)
 	while (i < 2)
 	{
 		while (!line || line[0] == '\n')
-			line = get_next_line(data->fd);
+			line = ft_gnl_gc(data->fd, &data->gc);
 		if (i == 0)
 			put_color(data->F, line, 'F');
 		if (i == 1)
 			put_color(data->C, line, 'C');
-		free(line);
 		line = NULL;
 		i++;
 	}
-	free(line);
 }

@@ -1,6 +1,7 @@
 #______________ FILES ______________#
 
 FILES		=	src/main.c						\
+				src/exit.c						\
 				src/gc/ft_calloc_gc.c			\
 				src/gc/ft_delone_gc.c			\
 				src/gc/ft_error_gc.c			\

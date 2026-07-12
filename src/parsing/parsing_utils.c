@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 18:51:22 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/11 16:14:12 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/11 21:03:52 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static bool	check_first_and_last_line(char *line)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] != EMPTY || line[i] != WALL)
+		if (line[i] != EMPTY && line[i] != WALL)
 			return (false);
 		i++;
 	}
