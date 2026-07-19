@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 16:50:11 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/19 21:22:54 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,32 @@ static void	check_newlines(t_data *data, char *line)
 	while (line[i])
 	{
 		if ((line[i] == '\n' && line[i + 1] == '\n'))
-			handle_exit(data, "consecutive newlines (check the last line)");
+			handle_exit(data, CONSECUTIVE_NEWLINES);
+		i++;
+	}
+}
+
+static void check_caracters_in_map(char *line, t_data *data)
+{
+	int	i;
+	int	pos;
+
+	pos = 0;
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] != '1' && line[i] != '0'
+				&& line[i] != 'N' && line[i] != 'S'
+				&& line[i] != 'W' && line[i] != 'E'
+				&& line[i] != ' ' && line[i] != '\n')
+				handle_exit(data, UNIDENTIFIED_CHAR_MAP);
+		else if (line[i] == 'N' || line[i] == 'S'
+				|| line[i] == 'W' || line[i] == 'E')
+		{
+			if (pos == 1)
+				handle_exit(data, MULTIPLE_START);
+			pos = 1;
+		}
 		i++;
 	}
 }
@@ -54,27 +79,11 @@ static char	*one_line_map(t_data *data)
 void	parse_map(t_data *data)
 {
 	char	*line;
-	int		i;
-	int		j;
 
 	line = NULL;
 	line = one_line_map(data);
+	check_caracters_in_map(line, data);
 	data->map = ft_split_gc(line, '\n', &data->gc);
-	i = 0;
-	while (data->map[i])
-	{
-		j = 0;
-		while (data->map[i][j])
-		{
-			if (data->map[i][j] != '1' && data->map[i][j] != '0'
-				&& data->map[i][j] != 'N' && data->map[i][j] != 'S'
-				&& data->map[i][j] != 'W' && data->map[i][j] != 'E'
-				&& data->map[i][j] != ' ')
-				handle_exit(data, UNIDENTIFIED_CHAR_MAP);
-			j++;
-		}
-		i++;
-	}
 	if (!check_border(data->map))
 		handle_exit(data, BORDER_ERROR);
 }

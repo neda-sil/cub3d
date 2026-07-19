@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 16:13:05 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/19 21:28:38 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define WRONG_RANGE "Error: wrong color range (must be between 0 and 255)\n"
 # define WRONG_ORDER_TEXTURE "Error: wrong params order for textures\n"
 # define WRONG_ORDER_COLOR "Error: wrong params order for colors\n"
+# define MULTIPLE_START "Error: multiple starting points in the map\n"
+# define CONSECUTIVE_NEWLINES "Error: consecutive newlines (check the last lines)\n"
 
 /* Main struct */
 typedef struct s_data
