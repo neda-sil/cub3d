@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:03:58 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/21 11:21:38 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/21 14:51:18 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,25 @@ int	main(int ac, char **av)
 	data->fd = fd;
 	parsing(data);
 	verif_parse(data);
+	init_mlx(data, &data->mlx);
 	handle_exit(data, NULL);
 	return (EXIT_SUCCESS);
 }
+
+// int    print_key(int key, void *param)
+// {
+//     (void)param;
+//     ft_printf("keycode : %d\n", key);
+//     return (0);
+// }
+
+// int    main(void)
+// {
+//     void *mlx;
+//     void *win;
+
+//     mlx = mlx_init();
+//     win = mlx_new_window(mlx, 1920, 1000, "test keys");
+//     mlx_key_hook(win, print_key, NULL);
+//     mlx_loop(mlx);
+// }

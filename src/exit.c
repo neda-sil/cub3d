@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:11:19 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 16:09:34 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/21 14:42:19 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,12 @@ void	handle_exit(t_data *data, char *message)
 		exit(EXIT_FAILURE);
 	}
 	exit(EXIT_SUCCESS);
+}
+int	*mlx_exit(t_data *data)
+{
+	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
+	mlx_destroy_display(data->mlx.mlx_ptr);
+	free(data->mlx.mlx_ptr);
+	handle_exit(data, NULL);
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 14:21:45 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/21 14:42:35 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,21 @@
 # include <fcntl.h>
 # include <errno.h>
 
-/* Usefulls */
+/* Useful */
 # include "../lib/lib.h"
 # include "../minilibx-linux/mlx.h"
+# include <X11/X.h>
+# include <X11/keysym.h>
 
 /* Project specifics */
 # include "includes_h/gc.h"
 # include "includes_h/structs.h"
 # include "includes_h/parsing.h"
+# include "includes_h/minilx.h"
 
+/* Exit */
 void	handle_exit(t_data *data, char *message);
+int		*mlx_exit(t_data *data);
+
 
 #endif

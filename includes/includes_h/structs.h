@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/21 11:21:23 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/21 14:52:19 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@
 # define CONSECUTIVE_NEWLINES "Error: consecutive newlines (check the last lines)\n"
 # define NO_PLAYER "Error: no player in map\n"
 
+typedef int	(*t_fn)(void);
+
+typedef struct s_mlx
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}			t_mlx;
+
 /* Main struct */
 typedef struct s_data
 {
@@ -50,6 +58,7 @@ typedef struct s_data
 	int		C[3];
 	char	**map;
 	t_gc	*gc;
+	t_mlx	mlx;
 }			t_data;
 
 #endif
