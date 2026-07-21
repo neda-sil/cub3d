@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/19 21:22:54 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/21 11:20:29 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	check_newlines(t_data *data, char *line)
 	}
 }
 
-static void check_caracters_in_map(char *line, t_data *data)
+static void	check_caracters_in_map(char *line, t_data *data)
 {
 	int	i;
 	int	pos;
@@ -48,6 +48,8 @@ static void check_caracters_in_map(char *line, t_data *data)
 		}
 		i++;
 	}
+	if (!pos)
+		handle_exit(data, NO_PLAYER);
 }
 
 static char	*one_line_map(t_data *data)

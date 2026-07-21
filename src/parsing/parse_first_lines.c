@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_first_lines.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:38:35 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 16:12:55 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/21 11:21:57 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	parse_textures(t_data *data)
 		while (!line || line[0] == '\n')
 			line = ft_gnl_gc(data->fd, &data->gc);
 		if (i == 0)
-			put_textures(&data->NO, line, "NO", data);
+			put_textures(&data->no, line, "NO", data);
 		if (i == 1)
 			put_textures(&data->SO, line, "SO", data);
 		if (i == 2)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:03:58 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 16:18:49 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/21 11:21:38 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	verif_parse(t_data *data)
 {
-	printf("NO %s\n", data->NO);
+	printf("NO %s\n", data->no);
 	printf("SO %s\n", data->SO);
 	printf("WE %s\n", data->WE);
 	printf("EA %s\n", data->EA);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/19 21:28:38 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/21 11:21:23 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,13 @@
 # define WRONG_ORDER_COLOR "Error: wrong params order for colors\n"
 # define MULTIPLE_START "Error: multiple starting points in the map\n"
 # define CONSECUTIVE_NEWLINES "Error: consecutive newlines (check the last lines)\n"
+# define NO_PLAYER "Error: no player in map\n"
 
 /* Main struct */
 typedef struct s_data
 {
 	int		fd;
-	char	*NO;
+	char	*no;
 	char	*SO;
 	char	*WE;
 	char	*EA;
