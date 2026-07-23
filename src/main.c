@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:03:58 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/22 13:27:33 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/23 12:46:59 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	main(int ac, char **av)
 	data->fd = fd;
 	data->rycstng.y_dir = 0;
 	data->rycstng.x_dir = 0;
+	data->screen_x = 1200;
+	data->screen_y = 700;
 	parsing(data);
 	verif_parse(data);
 	init_mlx(data, &data->mlx);
