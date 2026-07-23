@@ -1,7 +1,7 @@
-NO test.xpm
-SO test.xpm
-WE test.xpm
-EA test.xpm
+NO no.xpm
+SO so.xpm
+WE we.xpm
+EA ea.xpm
 
 F 123,23,43
 C 0,32,32
