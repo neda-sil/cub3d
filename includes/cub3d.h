@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/23 11:43:30 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/23 13:23:04 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # include "includes_h/structs.h"
 # include "includes_h/parsing.h"
 # include "includes_h/minilx.h"
+# include "includes_h/calculs.h"
 
 /* Exit */
 void	handle_exit(t_data *data, char *message);

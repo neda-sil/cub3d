@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/23 13:06:52 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/23 14:35:42 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,10 @@ typedef struct s_ryct
 	double 	y_map;
 	double	x_dir_ray;
 	double	y_dir_ray;
+	double	x_potential_length;
+	double	y_potential_length;
+	double	x_next_square;
+	double	y_next_square;
 }			t_ryct;
 
 
@@ -75,6 +79,7 @@ typedef struct s_data
 	char	**map;
 	int		screen_x;
 	int		screen_y;
+	char	*line;
 	t_gc	*gc;
 	t_mlx	mlx;
 	t_ryct	rycstng;

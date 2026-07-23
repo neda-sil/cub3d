@@ -6,12 +6,13 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 15:50:24 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/07/22 13:09:20 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/23 13:30:52 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CALCULS_H
 # define CALCULS_H
 
+void	init_calculs(t_data *data, t_ryct *ray);
 
 #endif

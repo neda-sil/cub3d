@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/23 12:55:31 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/23 14:36:53 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	check_newlines(t_data *data, char *line)
 	}
 }
 
-static void	check_caracters_in_map(char *line, t_data *data)
+static void	check_caracters_in_map(char *line, t_data *data, t_ryct *rycstng)
 {
 	int	i;
 	int	pos;
@@ -43,13 +43,13 @@ static void	check_caracters_in_map(char *line, t_data *data)
 				|| line[i] == 'W' || line[i] == 'E')
 		{
 			if (line[i] == 'S')
-				data->rycstng.y_dir = 1;
+				rycstng->y_dir = 1;
 			if (line[i] == 'N')
-				data->rycstng.y_dir = -1;
+				rycstng->y_dir = -1;
 			if (line[i] == 'E')
-				data->rycstng.x_dir = 1;
+				rycstng->x_dir = 1;
 			if (line[i] == 'W')
-				data->rycstng.x_dir = -1;
+				rycstng->x_dir = -1;
 			if (pos == 1)
 				handle_exit(data, MULTIPLE_START);
 			pos = 1;
@@ -86,7 +86,7 @@ static char	*one_line_map(t_data *data)
 	return (line);
 }
 
-static void	find_player_pos(t_data *data, char **map)
+static void	find_player_pos(char **map, t_ryct *rycstng)
 {
 	int	x;
 	int	y;
@@ -100,8 +100,8 @@ static void	find_player_pos(t_data *data, char **map)
 			if (map[y][x] == 'N' || map[y][x] == 'S'
 				|| map[y][x] == 'W' || map[y][x] == 'E')
 			{
-				data->rycstng.x_player = x;
-				data->rycstng.y_player = y;
+				rycstng->x_player = x;
+				rycstng->y_player = y;
 			}
 			x++;
 		}
@@ -115,9 +115,9 @@ void	parse_map(t_data *data)
 
 	line = NULL;
 	line = one_line_map(data);
-	check_caracters_in_map(line, data);
+	check_caracters_in_map(line, data, &data->rycstng);
 	data->map = ft_split_gc(line, '\n', &data->gc);
-	find_player_pos(data, data->map);
+	find_player_pos(data->map, &data->rycstng);
 	if (!check_border(data->map))
 		handle_exit(data, BORDER_ERROR);
 }
