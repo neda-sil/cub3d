@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/21 14:52:19 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/22 13:24:50 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,20 @@ typedef struct s_mlx
 	void	*win_ptr;
 }			t_mlx;
 
+typedef struct s_ryct
+{
+	double	x_dir;
+	double	y_dir;
+	double	x_player;
+	double	y_player;
+	double	x_camera;
+	double	y_camera;
+	double	camera_angle;
+	double	x_map;
+	double 	y_map;
+}			t_ryct;
+
+
 /* Main struct */
 typedef struct s_data
 {
@@ -59,6 +73,7 @@ typedef struct s_data
 	char	**map;
 	t_gc	*gc;
 	t_mlx	mlx;
+	t_ryct	rycstng;
 }			t_data;
 
 #endif

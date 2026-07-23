@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/21 11:20:29 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/23 11:50:15 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,14 @@ static void	check_caracters_in_map(char *line, t_data *data)
 		else if (line[i] == 'N' || line[i] == 'S'
 				|| line[i] == 'W' || line[i] == 'E')
 		{
+			if (line[i] == 'S')
+				data->rycstng.y_dir = 1;
+			if (line[i] == 'N')
+				data->rycstng.y_dir = -1;
+			if (line[i] == 'E')
+				data->rycstng.x_dir = 1;
+			if (line[i] == 'W')
+				data->rycstng.x_dir = -1;
 			if (pos == 1)
 				handle_exit(data, MULTIPLE_START);
 			pos = 1;

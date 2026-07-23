@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:03:58 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/21 14:51:18 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/22 13:27:33 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	main(int ac, char **av)
 		return (ft_printf("%s", MALLOC_ERROR), EXIT_FAILURE);
 	ft_bzero(data, sizeof(t_data));
 	data->fd = fd;
+	data->rycstng.y_dir = 0;
+	data->rycstng.x_dir = 0;
 	parsing(data);
 	verif_parse(data);
 	init_mlx(data, &data->mlx);
