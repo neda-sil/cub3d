@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/23 12:09:49 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/23 12:55:31 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ static void	find_player_pos(t_data *data, char **map)
 		x = 0;
 		while (map[y][x])
 		{
-			if (map[x][y] == 'N' || map[x][y] == 'S'
-				|| map[x][y] == 'W' || map[x][y] == 'E')
+			if (map[y][x] == 'N' || map[y][x] == 'S'
+				|| map[y][x] == 'W' || map[y][x] == 'E')
 			{
 				data->rycstng.x_player = x;
 				data->rycstng.y_player = y;
@@ -117,7 +117,7 @@ void	parse_map(t_data *data)
 	line = one_line_map(data);
 	check_caracters_in_map(line, data);
 	data->map = ft_split_gc(line, '\n', &data->gc);
-	find_player_pos(data->map);
-	if (!check_border(data, data->map))
+	find_player_pos(data, data->map);
+	if (!check_border(data->map))
 		handle_exit(data, BORDER_ERROR);
 }
