@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:48:09 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/10 14:38:20 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/23 13:10:07 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ int		ft_toupper(int c);
 /*rajout marius*/
 int		is_there(const char okay, char *look_inside_me);
 size_t	ft_splitlen(char **str);
+double	ft_abs_double(double src);
+
 
 #endif

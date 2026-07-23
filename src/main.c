@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:03:58 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/23 12:50:42 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/23 13:13:22 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,27 @@ int	main(int ac, char **av)
 	return (EXIT_SUCCESS);
 }
 
-// int    print_key(int key, void *param)
-// {
-//     (void)param;
-//     ft_printf("keycode : %d\n", key);
-//     return (0);
-// }
+int	main(int ac, char **av)
+{
+	t_data	*data;
+	int		fd;
 
-// int    main(void)
-// {
-//     void *mlx;
-//     void *win;
-
-//     mlx = mlx_init();
-//     win = mlx_new_window(mlx, 1920, 1000, "test keys");
-//     mlx_key_hook(win, print_key, NULL);
-//     mlx_loop(mlx);
-// }
+	if (ac != 2)
+		return (ft_printf("%s", ARG_ERROR), EXIT_FAILURE);
+	else if (!check_extension(av[1], ".cub", 4))
+		return (ft_printf("%s", MAP_EXTENSION), EXIT_FAILURE);
+	fd = open(av[1], O_RDONLY);
+	if (fd < 0)
+		return (ft_printf("%s", NOT_FOUND), EXIT_FAILURE);
+	data = malloc(sizeof(t_data));
+	if (!data)
+		return (ft_printf("%s", MALLOC_ERROR), EXIT_FAILURE);
+	ft_bzero(data, sizeof(t_data));
+	data->fd = fd;
+	parsing(data);
+	verif_parse(data);
+	// init_mlx(data, &data->mlx);
+	init_calculs(data, data->rycstng);
+	handle_exit(data, NULL);
+	return (EXIT_SUCCESS);
+}

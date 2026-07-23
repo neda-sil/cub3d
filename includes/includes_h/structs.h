@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/23 12:44:44 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/23 13:06:52 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ typedef struct s_ryct
 	double	camera_angle;
 	double	x_map;
 	double 	y_map;
-	double	x_ray;
-	double	y_ray;
+	double	x_dir_ray;
+	double	y_dir_ray;
 }			t_ryct;
 
 

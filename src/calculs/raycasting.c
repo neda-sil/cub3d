@@ -1,8 +1,20 @@
 #include "../../includes/cub3d.h"
 
+void	print_calculs(t_ryct ray)
+{
+	printf("x_player = %f \n", ray.x_player);
+	printf("y_player = %f \n", ray.y_player);
+	printf("x_map = %f \n", ray.x_player);
+	printf("y_map = %f \n", ray.y_player);
+}
+
 void	init_ray(t_ryct	ray)
 {
-	
+	ray.x_map = ft_abs_double(ray.x_player);
+	ray.y_map = ft_abs_double(ray.y_player);
+	ray.x_dir_ray = ray.x_dir + ray.x_camera * ray.camera_angle;
+	ray.y_dir_ray = ray.y_dir + ray.y_camera * ray.camera_angle;
+	print_calculs(ray);
 }
 
 void	init_calculs(t_data *data, t_ryct ray)
@@ -16,6 +28,6 @@ void	init_calculs(t_data *data, t_ryct ray)
 	{
 		ray.camera_angle = 2 * x / data->screen_x - 1;
 		init_ray(ray);
+		i++;
 	}
-	init_rays(ray);
 }

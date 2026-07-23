@@ -6,7 +6,7 @@
 #    By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/13 14:48:16 by neda-sil          #+#    #+#              #
-#    Updated: 2026/07/10 12:10:16 by malaimo          ###   ########.fr        #
+#    Updated: 2026/07/23 13:09:43 by malaimo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,8 @@ FILES	=	libft/ft_atoi					\
 			gnl/get_next_line				\
 			gnl/get_next_line_utils			\
 			libft/is_there					\
-			libft/ft_splitlen
+			libft/ft_splitlen				\
+			libft/ft_abs_double
 
 #______________ NAMES ______________#
 
