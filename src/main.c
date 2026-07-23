@@ -6,24 +6,24 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:03:58 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/23 12:50:42 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/23 14:14:37 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static void	verif_parse(t_data *data)
-{
-	printf("NO %s\n", data->no);
-	printf("SO %s\n", data->SO);
-	printf("WE %s\n", data->WE);
-	printf("EA %s\n", data->EA);
-	printf("F %d,%d,%d\n", data->F[0], data->F[1], data->F[2]);
-	printf("C %d,%d,%d\n", data->C[0], data->C[1], data->C[2]);
-	int	i = 0;
-	while (data->map[i])
-		printf("%s\n", data->map[i++]);
-}
+// static void	verif_parse(t_data *data)
+// {
+// 	printf("NO %s\n", data->no);
+// 	printf("SO %s\n", data->SO);
+// 	printf("WE %s\n", data->WE);
+// 	printf("EA %s\n", data->EA);
+// 	printf("F %d,%d,%d\n", data->F[0], data->F[1], data->F[2]);
+// 	printf("C %d,%d,%d\n", data->C[0], data->C[1], data->C[2]);
+// 	int	i = 0;
+// 	while (data->map[i])
+// 		printf("%s\n", data->map[i++]);
+// }
 
 int	main(int ac, char **av)
 {
@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 	ft_bzero(data, sizeof(t_data));
 	data->fd = fd;
 	parsing(data);
-	verif_parse(data);
+	// verif_parse(data);
 	init_mlx(data, &data->mlx);
 	handle_exit(data, NULL);
 	return (EXIT_SUCCESS);
