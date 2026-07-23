@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/23 11:50:15 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/23 12:09:49 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,29 @@ static char	*one_line_map(t_data *data)
 	return (line);
 }
 
+static void	find_player_pos(t_data *data, char **map)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (map[y])
+	{
+		x = 0;
+		while (map[y][x])
+		{
+			if (map[x][y] == 'N' || map[x][y] == 'S'
+				|| map[x][y] == 'W' || map[x][y] == 'E')
+			{
+				data->rycstng.x_player = x;
+				data->rycstng.y_player = y;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
 void	parse_map(t_data *data)
 {
 	char	*line;
@@ -94,6 +117,7 @@ void	parse_map(t_data *data)
 	line = one_line_map(data);
 	check_caracters_in_map(line, data);
 	data->map = ft_split_gc(line, '\n', &data->gc);
-	if (!check_border(data->map))
+	find_player_pos(data->map);
+	if (!check_border(data, data->map))
 		handle_exit(data, BORDER_ERROR);
 }
