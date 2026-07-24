@@ -40,82 +40,78 @@ int		check_wall(t_data *data, int y, int x)
 		printf("erreur map");
 		exit (0);
 	}
-	if (data->map[y][x] == '1')
+	if (data->map[y][x] == '1' || data->map[y][x] == ' ')
 		return (1);
-	else 
+	else
 		return (0);
 }
 
-void	calculate_distance_wall(t_data *data, t_ryct *ray)
+int	advance_ray(t_data *data, t_ryct *ray)
 {
-	(void)data;
-	(void)ray;
-	return ;
-}
+	int	direction;
 
-void	advance_ray(t_data *data, t_ryct *ray)
-{
-	int		is_wall;
-
-	is_wall = 0;
-	while (is_wall == 0)
+	while (1)
 	{
 		if (ray->y_next_square <= ray->x_next_square)
 		{
 			ray->y_map += ray->y_guide;
-			is_wall = check_wall(data, ray->y_map, ray->x_map);
 			ray->y_next_square += ray->y_length;
+			direction = 0;
 		}
 		else
 		{
 			ray->x_map += ray->x_guide;
-			is_wall = check_wall(data, (int)ray->y_map, (int)ray->x_map);
 			ray->x_next_square += ray->x_length;
+			direction = 1;
 		}
+		if (check_wall(data, ray->y_map, ray->x_map))
+			break;
 	}
-	printf("wall found in [%d][%d]\n", ray->y_map, ray->x_map);
+	return (direction);
 }
 
-void	init_ray(t_data *data, t_ryct	*ray)
+double	get_wall_height(t_data *data, t_ryct *ray)
 {
-	ray->x_map = (int)(ray->x_player);
-	ray->y_map = (int)(ray->y_player);
-	ray->x_dir_ray = ray->x_dir + ray->x_camera * ray->camera_angle;
-	ray->y_dir_ray = ray->y_dir + ray->y_camera * ray->camera_angle;
+	double	height_wall;
+	double	dist_wall;
+	int		direction; 
+
+	direction = advance_ray(data, ray);
+	if (direction == 0)
+		dist_wall = ray->y_next_square - ray->y_length;
+	else
+		dist_wall = ray->x_next_square - ray->x_length;
+	printf("wall met at [%d][%d] : ", ray->y_map, ray->x_map);
+	height_wall = data->screen_y / dist_wall;
+	if (height_wall >= data->screen_y)
+		height_wall = data->screen_y - 1;
+	return (height_wall);
+}
+
+double	launch_ray(t_data *data, t_ryct	*ray)
+{
 	ray->x_length = fabs(1/ray->x_dir_ray);
 	ray->y_length = fabs(1/ray->y_dir_ray);
 	if (ray->x_dir_ray < 0)
 	{
 		ray->x_guide = -1;
-		ray->x_next_square = fabs((ray->x_player - ray->x_map) * ray->x_length);
+		ray->x_next_square = (ray->x_player - (double)ray->x_map) * ray->x_length;
 	}
-	else 
-		ray->x_next_square = (ray->x_map + 1 - ray->x_player) * ray->x_length;
+	else
+	{
+		ray->x_guide = 1;
+		ray->x_next_square = ((double)ray->x_map + 1.0 - ray->x_player) * ray->x_length;
+	}
 	if (ray->y_dir_ray < 0)
 	{
 		ray->y_guide = -1;
-		ray->y_next_square = (ray->y_player - ray->y_map) * ray->y_length;
+		ray->y_next_square = (ray->y_player - (double)ray->y_map) * ray->y_length;
 	}
-	else 
-		ray->y_next_square = (ray->y_map + 1 - ray->y_player) * ray->y_length;
-	(void)data;
-	// print_calculs(ray);
-	advance_ray(data, ray);
-}
-
-void	init_calculs(t_data *data, t_ryct *ray)
-{
-	double	i;
-
-	i = 0;
-	ray->x_camera = (-ray->y_dir) * 0.7;
-	ray->y_camera = (ray->x_dir) * 0.7;
-	while (i <= data->screen_x)
+	else
 	{
-		ray->camera_angle = 2 * i / data->screen_x - 1;
-		ray->x_guide = 1;
 		ray->y_guide = 1;
-		init_ray(data, ray);
-		i += 1;
+		ray->y_next_square = ((double)ray->y_map + 1.0 - ray->y_player) * ray->y_length;
 	}
+	// print_calculs(ray);
+	return (get_wall_height(data, ray));
 }

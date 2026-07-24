@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/24 11:28:36 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/24 11:55:11 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct s_data
 	char	**map;
 	int		screen_x;
 	int		screen_y;
+	double	height_wall;
 	t_gc	*gc;
 	t_mlx	mlx;
 	t_ryct	rycstng;
