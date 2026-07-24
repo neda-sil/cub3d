@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 12:03:58 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/23 14:45:06 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/23 15:21:01 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	main(int ac, char **av)
 	parsing(data);
 	verif_parse(data);
 	// init_mlx(data, &data->mlx);
-	// init_calculs(data, &data->rycstng);
+	init_calculs(data, &data->rycstng);
 	handle_exit(data, NULL);
 	return (EXIT_SUCCESS);
 }
