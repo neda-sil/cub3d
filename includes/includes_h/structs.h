@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/24 11:55:11 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/28 11:30:18 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # define MULTIPLE_START "Error: multiple starting points in the map\n"
 # define CONSECUTIVE_NEWLINES "Error: consecutive newlines (check the last lines)\n"
 # define NO_PLAYER "Error: no player in map\n"
+# define NO_IMG "Error: image not found\n"
 
 typedef int	(*t_fn)(void);
 
