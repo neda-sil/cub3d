@@ -26,8 +26,10 @@ FILES		=	src/main.c						\
 				src/parsing/verif_imgs.c		\
 				src/mlx/init_mlx.c				\
 				src/mlx/make_and_destroy_img.c	\
+				src/mlx/manage_inputs.c			\
+				src/mlx/movements.c				\
 				src/raycasting/raycasting.c		\
-				src/raycasting/calculs.c
+				src/raycasting/calculs.c		
 
 #______________ NAMES ______________#
 
