@@ -1,7 +1,7 @@
-NO no.xpm
-SO so.xpm
-WE we.xpm
-EA ea.xpm
+NO includes/imgs/no.xpm
+SO includes/imgs/so.xpm
+WE includes/imgs/we.xpm
+EA includes/imgs/ea.xpm
 
 F 123,23,43
 C 0,32,32

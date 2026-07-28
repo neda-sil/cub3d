@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minilx.h                                           :+:      :+:    :+:   */
+/*   pixel_put.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 15:50:24 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/07/28 14:17:37 by neda-sil         ###   ########.fr       */
+/*   Created: 2026/07/28 14:13:59 by neda-sil          #+#    #+#             */
+/*   Updated: 2026/07/28 14:17:32 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINILX_H
-# define MINILX_H
+#include "../../includes/cub3d.h"
 
-void	destroy_imgs(t_data *data, t_mlx *mlx);
-void	init_mlx(t_data *data, t_mlx *mlx);
-void	make_img(t_data *data, bool destroy, int width, int height);
-void	put_pixel_to_img(t_mlx *mlx, t_data *data, int x, int y, int color);
+void	put_pixel_to_img(t_mlx *mlx, t_data *data, int x, int y, int color)
+{
+	char	*pixel;
 
-#endif
+	if (x < 0 || x >= data->screen_x || y < 0 || y >= data->screen_y)
+		return ;
+	pixel = mlx->addr + (y * mlx->line_len) + (x * (mlx->bpp / 8));
+	*(int *)pixel = color;
+}

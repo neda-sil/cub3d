@@ -6,13 +6,12 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 14:57:24 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/28 11:20:21 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/28 14:22:42 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-// ========= il faut tout mettre dans le gc plus tard ========= //
 void	parsing(t_data *data)
 {
 	data->rycstng.x_dir = 0;

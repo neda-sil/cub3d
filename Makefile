@@ -26,6 +26,7 @@ FILES		=	src/main.c						\
 				src/parsing/verif_imgs.c		\
 				src/mlx/init_mlx.c				\
 				src/mlx/make_and_destroy_img.c	\
+				src/mlx/pixel_put.c				\
 				src/raycasting/raycasting.c		\
 				src/raycasting/calculs.c
 
