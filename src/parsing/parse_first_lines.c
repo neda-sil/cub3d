@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_first_lines.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:38:35 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/21 11:21:57 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/28 11:38:39 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,6 @@ void	parse_colors(t_data *data)
 		line = NULL;
 		i++;
 	}
+	data->floor_color = (data->F[0] << 16) | (data->F[1] << 8) | data->F[2];
+	data->ceiling_color = (data->C[0] << 16) | (data->C[1] << 8) | data->C[2];
 }

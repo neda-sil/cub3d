@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/28 11:30:18 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/28 11:38:08 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,13 @@ typedef struct s_ryct
 	int		y_guide;
 }			t_ryct;
 
+typedef struct s_imgs
+{
+	void	*no_img;
+	void	*so_img;
+	void	*we_img;
+	void	*ea_img;
+}			t_imgs;
 
 /* Main struct */
 typedef struct s_data
@@ -79,6 +86,8 @@ typedef struct s_data
 	char	*EA;
 	int		F[3];
 	int		C[3];
+	int		floor_color;
+	int		ceiling_color;
 	char	**map;
 	int		screen_x;
 	int		screen_y;
@@ -86,6 +95,7 @@ typedef struct s_data
 	t_gc	*gc;
 	t_mlx	mlx;
 	t_ryct	rycstng;
+	t_imgs	*imgs;
 }			t_data;
 
 #endif
