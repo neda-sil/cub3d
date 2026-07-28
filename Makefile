@@ -24,8 +24,10 @@ FILES		=	src/main.c						\
 				src/parsing/parsing_utils.c		\
 				src/parsing/parsing.c			\
 				src/mlx/init_mlx.c				\
+				src/mlx/manage_inputs.c			\
+				src/mlx/movements.c				\
 				src/raycasting/raycasting.c		\
-				src/raycasting/calculs.c
+				src/raycasting/calculs.c		
 
 #______________ NAMES ______________#
 

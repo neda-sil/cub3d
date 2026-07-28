@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/24 14:22:58 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/28 11:40:24 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ static void	find_player_pos(char **map, t_ryct *rycstng)
 			{
 				rycstng->x_player = x + 0.5;
 				rycstng->y_player = y + 0.5;
+				rycstng->x_camera = (-rycstng->y_dir) * 0.7;
+				rycstng->y_camera = (rycstng->x_dir) * 0.7;
 			}
 			x++;
 		}
