@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 11:19:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/28 11:31:04 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/28 11:53:31 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	verif_imgs(t_data *data)
 {
-	int	*fd;
+	int	fd;
 
 	fd = open(data->no, O_RDONLY);
 	if (!fd)

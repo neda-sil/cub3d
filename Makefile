@@ -23,7 +23,9 @@ FILES		=	src/main.c						\
 				src/parsing/parse_map.c			\
 				src/parsing/parsing_utils.c		\
 				src/parsing/parsing.c			\
+				src/parsing/verif_imgs.c		\
 				src/mlx/init_mlx.c				\
+				src/mlx/make_and_destroy_img.c	\
 				src/raycasting/raycasting.c		\
 				src/raycasting/calculs.c
 

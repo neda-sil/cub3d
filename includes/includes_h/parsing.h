@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 23:57:36 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/19 21:09:33 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/28 11:46:17 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ bool	check_border(char **map);
 void	parse_colors(t_data *data);
 void	parse_textures(t_data *data);
 void	parse_map(t_data *data);
+void	verif_imgs(t_data *data);
 
 /* Main Function */
 void	parsing(t_data *data);
