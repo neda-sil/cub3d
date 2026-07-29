@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 11:29:56 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/29 12:19:54 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/29 14:03:29 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ void	launch_raycasting(t_data *data, t_ryct *ray)
 	int	i;
 
 	i = 0;
-	ray->x_camera = (-ray->y_dir) * 0.7;
-	ray->y_camera = (ray->x_dir) * 0.7;
-	while (i < data->screen_x)
+	while (i <= data->screen_x)
 	{
 		ray->x_map = (int)(ray->x_player);
 		ray->y_map = (int)(ray->y_player);
