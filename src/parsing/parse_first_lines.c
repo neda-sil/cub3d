@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:38:35 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/28 11:38:39 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/29 12:47:56 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	parse_textures(t_data *data)
 		if (i == 0)
 			put_textures(&data->no, line, "NO", data);
 		if (i == 1)
-			put_textures(&data->SO, line, "SO", data);
+			put_textures(&data->so, line, "so", data);
 		if (i == 2)
-			put_textures(&data->WE, line, "WE", data);
+			put_textures(&data->we, line, "we", data);
 		if (i == 3)
-			put_textures(&data->EA, line, "EA", data);
+			put_textures(&data->ea, line, "ea", data);
 		line = NULL;
 		i++;
 	}
@@ -94,12 +94,12 @@ void	parse_colors(t_data *data)
 		while (!line || line[0] == '\n')
 			line = ft_gnl_gc(data->fd, &data->gc);
 		if (i == 0)
-			put_color(data->F, line, 'F', data);
+			put_color(data->f, line, 'F', data);
 		if (i == 1)
-			put_color(data->C, line, 'C', data);
+			put_color(data->c, line, 'C', data);
 		line = NULL;
 		i++;
 	}
-	data->floor_color = (data->F[0] << 16) | (data->F[1] << 8) | data->F[2];
-	data->ceiling_color = (data->C[0] << 16) | (data->C[1] << 8) | data->C[2];
+	data->floor_color = (data->f[0] << 16) | (data->f[1] << 8) | data->f[2];
+	data->ceiling_color = (data->c[0] << 16) | (data->c[1] << 8) | data->c[2];
 }

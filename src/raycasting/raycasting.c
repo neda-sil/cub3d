@@ -6,11 +6,13 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 11:29:56 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/29 12:08:33 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/29 12:19:54 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+#define WALL_COLOR_DEBUG 0xFFFFFF
 
 static void	draw_background(t_data *data, int i)
 {
@@ -26,7 +28,7 @@ static void	draw_background(t_data *data, int i)
 	while (y < start)
 		put_pixel_to_img(&data->mlx, data, i, y++, data->ceiling_color);
 	while (y < end)
-		put_pixel_to_img(&data->mlx, data, i, y++, data->ceiling_color);
+		put_pixel_to_img(&data->mlx, data, i, y++, WALL_COLOR_DEBUG);
 	while (y < data->screen_y)
 		put_pixel_to_img(&data->mlx, data, i, y++, data->floor_color);
 }

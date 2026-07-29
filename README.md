@@ -4,7 +4,7 @@ Je vais ecrire ce que je fais ici comme ca tu pourras suivre a ton prochain pull
 
 - les premieres lignes du main sont de simples premieres verifications : nbr d'arg, extension .cub et si le fd ouvre ou non
 
-- la fonction "parse_texture" s'occupe de chercher les textures NO, SO, WE, EA
+- la fonction "parse_texture" s'occupe de chercher les textures NO, SO, WE, ea
 
 - j'ai fait comme j'ai pu pour le parse de F et C, mais normalement ca fonctionne j'ai juste verifier que ce soit bien F et C dans l'ordre, puis j'ai verifier que ca soit bien separer par des virgules et j'ai laisser le atoi s'occuper de se debarasser des virgules
 

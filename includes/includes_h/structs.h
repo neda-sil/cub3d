@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/28 14:12:07 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/29 12:47:05 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 # define SOUTH 'S'
 # define WEST 'W'
 # define EAST 'E'
+
+/* Textures */
+#define NO 0
+#define SO 1
+#define WE 2
+#define EA 3
 
 /* Error messages */
 # define ARG_ERROR "Error: need one and only one arg\n"
@@ -73,24 +79,27 @@ typedef struct s_ryct
 	int		y_guide;
 }			t_ryct;
 
-typedef struct s_imgs
+typedef struct s_txtr
 {
-	void	*no_img;
-	void	*so_img;
-	void	*we_img;
-	void	*ea_img;
-}			t_imgs;
+	void	*img;
+	char	*addr;
+	int		width;
+	int		height;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}			t_txtr;
 
 /* Main struct */
 typedef struct s_data
 {
 	int		fd;
 	char	*no;
-	char	*SO;
-	char	*WE;
-	char	*EA;
-	int		F[3];
-	int		C[3];
+	char	*so;
+	char	*we;
+	char	*ea;
+	int		f[3];
+	int		c[3];
 	int		floor_color;
 	int		ceiling_color;
 	char	**map;
@@ -100,7 +109,7 @@ typedef struct s_data
 	t_gc	*gc;
 	t_mlx	mlx;
 	t_ryct	rycstng;
-	t_imgs	*imgs;
+	t_txtr	textures[4];
 }			t_data;
 
 #endif
