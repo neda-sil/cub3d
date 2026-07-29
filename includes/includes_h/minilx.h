@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minilx.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 15:50:24 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/07/29 14:04:45 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/29 14:37:39 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	put_pixel_to_img(t_mlx *mlx, t_data *data, int x, int y, int color);
 void	key_input(int kp, t_data *data);
 void	turn_left(t_ryct *ray);
 void	turn_right(t_ryct *ray);
+void	key_release(int kp, t_data *data);
+
 
 /* movements */
 void	advance(t_data *data, t_ryct *ray);

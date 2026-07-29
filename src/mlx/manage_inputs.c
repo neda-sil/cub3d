@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage_inputs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 15:07:49 by malaimo           #+#    #+#             */
-/*   Updated: 2026/07/29 14:14:54 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/29 14:47:23 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,28 @@ void	turn_right(t_ryct *ray)
 }
 
 void	key_input(int kp, t_data *data)
+{
+	if (kp == XK_Escape)
+		mlx_exit(data);
+	if (kp == XK_Left)
+		turn_left(&data->rycstng);
+	if (kp == XK_Right)
+		turn_right(&data->rycstng);
+	if (kp == XK_w)
+		advance(data, &data->rycstng);
+	if (kp == XK_s)
+		go_back(data, &data->rycstng);
+	if (kp == XK_a)
+		go_left(data, &data->rycstng);
+	if (kp == XK_d)
+		go_right(data, &data->rycstng);
+	launch_raycasting(data, &data->rycstng);
+	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
+		data->mlx.img_ptr, 0, 0);
+	return;
+}
+
+void	key_release(int kp, t_data *data)
 {
 	if (kp == XK_Escape)
 		mlx_exit(data);
