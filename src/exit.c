@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:11:19 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/28 11:48:57 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/29 13:06:06 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	handle_exit(t_data *data, char *message)
 }
 int	*mlx_exit(t_data *data)
 {
-	destroy_imgs(data, data->mlx.mlx_ptr);
+	destroy_imgs(&data->mlx, data->txtr);
 	mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
 	mlx_destroy_display(data->mlx.mlx_ptr);
 	free(data->mlx.mlx_ptr);

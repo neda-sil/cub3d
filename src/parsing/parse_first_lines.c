@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:38:35 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/29 12:47:56 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/29 13:02:34 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	parse_textures(t_data *data)
 		if (i == 0)
 			put_textures(&data->no, line, "NO", data);
 		if (i == 1)
-			put_textures(&data->so, line, "so", data);
+			put_textures(&data->so, line, "SO", data);
 		if (i == 2)
-			put_textures(&data->we, line, "we", data);
+			put_textures(&data->we, line, "WE", data);
 		if (i == 3)
-			put_textures(&data->ea, line, "ea", data);
+			put_textures(&data->ea, line, "EA", data);
 		line = NULL;
 		i++;
 	}
