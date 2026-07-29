@@ -81,7 +81,7 @@ double	get_wall_height(t_data *data, t_ryct *ray)
 		dist_wall = ray->y_next_square - ray->y_length;
 	else
 		dist_wall = ray->x_next_square - ray->x_length;
-	printf("wall met at [%d][%d] : ", ray->y_map, ray->x_map);
+	// printf("wall met at [%d][%d] : ", ray->y_map, ray->x_map);
 	height_wall = data->screen_y / dist_wall;
 	if (height_wall >= data->screen_y)
 		height_wall = data->screen_y - 1;
