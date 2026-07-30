@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/29 12:54:26 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/30 11:51:13 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct s_ryct
 	double	y_next_square;
 	int		x_guide;
 	int		y_guide;
+	int		moved;
 }			t_ryct;
 
 typedef struct s_txtr
@@ -89,6 +90,16 @@ typedef struct s_txtr
 	int		line_len;
 	int		endian;
 }			t_txtr;
+
+typedef struct s_mov
+{
+	int		press_left;
+	int		press_right;
+	int		press_w;
+	int		press_s;
+	int		press_a;
+	int		press_d;
+}			t_mov;
 
 /* Main struct */
 typedef struct s_data
@@ -110,6 +121,7 @@ typedef struct s_data
 	t_mlx	mlx;
 	t_ryct	rycstng;
 	t_txtr	txtr[4];
+	t_mov	mov;
 }			t_data;
 
 #endif
