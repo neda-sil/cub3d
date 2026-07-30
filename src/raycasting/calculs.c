@@ -88,8 +88,6 @@ double	get_wall_height(t_data *data, t_ryct *ray)
 		ray->wall_x = ray->y_player + ray->dist_wall * ray->y_dir_ray;
 	ray->wall_x -= floor(ray->wall_x);
 	height_wall = data->screen_y / ray->dist_wall;
-	if (height_wall >= data->screen_y)
-		height_wall = data->screen_y - 1;
 	return (height_wall);
 }
 

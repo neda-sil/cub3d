@@ -6,13 +6,11 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 11:29:56 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/30 13:25:37 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/30 14:12:59 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-#define WALL_COLOR_DEBUG 0xFFFFFF
 
 static void	calculate_tex_x(t_data *data, t_ryct *ray)
 {
@@ -32,8 +30,6 @@ static void	draw_background(t_data *data, t_ryct *ray, int i)
 	int	color;
 
 	start = data->screen_y / 2 - data->height_wall / 2;
-	if (start < 0)
-		start = 0;
 	end = data->screen_y / 2 + data->height_wall / 2;
 	calculate_tex_x(data, ray);
 	y = 0;
