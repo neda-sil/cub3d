@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/12 14:11:19 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/29 13:06:06 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:32:59 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	handle_exit(t_data *data, char *message)
 	}
 	exit(EXIT_SUCCESS);
 }
+
 int	*mlx_exit(t_data *data)
 {
 	destroy_imgs(&data->mlx, data->txtr);

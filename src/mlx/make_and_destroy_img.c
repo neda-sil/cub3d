@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_and_destroy_img.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 11:17:56 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/29 13:03:48 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:39:38 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	make_img(t_data *data, char *filename, t_txtr *txtr)
 {
 	txtr->img = mlx_xpm_file_to_image(data->mlx.mlx_ptr, filename,
-		&txtr->width, &txtr->height);
+			&txtr->width, &txtr->height);
 	txtr->addr = mlx_get_data_addr(txtr->img, &txtr->bpp, &txtr->line_len,
-		&txtr->endian);
+			&txtr->endian);
 }
 
 void	destroy_imgs(t_mlx *mlx, t_txtr *txtr)

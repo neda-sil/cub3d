@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 15:07:42 by malaimo           #+#    #+#             */
-/*   Updated: 2026/07/30 11:44:27 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/30 13:40:07 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	init_mlx(t_data *data, t_mlx *mlx)
 {
-	// printf("player is at [%f][%f]", data->rycstng.y_player, data->rycstng.x_player);
-	// printf("player look at [%f][%f], camera look at [%f][%f]\n", data->rycstng.x_dir, data->rycstng.y_dir, data->rycstng.x_camera, data->rycstng.y_camera);
 	mlx->mlx_ptr = mlx_init();
 	if (mlx->mlx_ptr == NULL)
 		exit(1);

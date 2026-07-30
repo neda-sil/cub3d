@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 15:50:24 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/07/30 11:51:39 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/30 13:32:41 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,10 @@ void	turn_left(t_ryct *ray);
 void	turn_right(t_ryct *ray);
 void	key_release(int kp, t_data *data);
 
-
 /* movements */
 void	advance(t_data *data, t_ryct *ray);
 void	go_back(t_data *data, t_ryct *ray);
 void	go_left(t_data *data, t_ryct *ray);
 void	go_right(t_data *data, t_ryct *ray);
-
 
 #endif
