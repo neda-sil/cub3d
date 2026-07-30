@@ -1,10 +1,10 @@
-NO includes/imgs/no.xpm
-SO includes/imgs/so.xpm
-WE includes/imgs/we.xpm
-EA includes/imgs/ea.xpm
+NO includes/imgs/dog_3.xpm
+SO includes/imgs/dog_8.xpm
+WE includes/imgs/dog_3.xpm
+EA includes/imgs/dog_8.xpm
 
-F 122,0,200
-C 45,200,13
+F 164,196,67
+C 59,125,79
 
       11111111111111 111
       10000000000001 101
