@@ -73,19 +73,36 @@ int	advance_ray(t_data *data, t_ryct *ray)
 double	get_wall_height(t_data *data, t_ryct *ray)
 {
 	double	height_wall;
-	double	dist_wall;
 	int		direction; 
 
 	direction = advance_ray(data, ray);
+	ray->side = direction;
 	if (direction == 0)
-		dist_wall = ray->y_next_square - ray->y_length;
+		ray->dist_wall = ray->y_next_square - ray->y_length;
 	else
-		dist_wall = ray->x_next_square - ray->x_length;
+		ray->dist_wall = ray->x_next_square - ray->x_length;
 	// printf("wall met at [%d][%d] : ", ray->y_map, ray->x_map);
-	height_wall = data->screen_y / dist_wall;
+	if (ray->side == 0)
+		ray->wall_x = ray->x_player + ray->dist_wall * ray->x_dir_ray;
+	else
+		ray->wall_x = ray->y_player + ray->dist_wall * ray->y_dir_ray;
+	ray->wall_x -= floor(ray->wall_x);
+	height_wall = data->screen_y / ray->dist_wall;
 	if (height_wall >= data->screen_y)
 		height_wall = data->screen_y - 1;
 	return (height_wall);
+}
+
+static void	know_side(t_ryct *ray)
+{
+	if (ray->side == 0 && ray->y_guide == -1)
+		ray->face = NO;
+	else if (ray->side == 0)
+		ray->face = SO;
+	else if (ray->x_guide == 1)
+		ray->face = EA;
+	else
+		ray->face = WE;
 }
 
 double	launch_ray(t_data *data, t_ryct	*ray)
@@ -112,6 +129,7 @@ double	launch_ray(t_data *data, t_ryct	*ray)
 		ray->y_guide = 1;
 		ray->y_next_square = ((double)ray->y_map + 1.0 - ray->y_player) * ray->y_length;
 	}
+	know_side(ray);
 	// print_calculs(ray);
 	return (get_wall_height(data, ray));
 }

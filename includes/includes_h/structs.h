@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/29 12:54:26 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/30 11:49:22 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ typedef struct s_ryct
 	double	y_next_square;
 	int		x_guide;
 	int		y_guide;
+	int		side;
+	double	dist_wall;
+	double	wall_x;
+	int		face;
 }			t_ryct;
 
 typedef struct s_txtr
@@ -88,6 +92,7 @@ typedef struct s_txtr
 	int		bpp;
 	int		line_len;
 	int		endian;
+	int		tex_x;
 }			t_txtr;
 
 /* Main struct */

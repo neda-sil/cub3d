@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 15:50:24 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/07/29 14:04:45 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/30 11:57:44 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	destroy_imgs(t_mlx *mlx, t_txtr *txtr);
 void	init_mlx(t_data *data, t_mlx *mlx);
 void	load_txtr(t_data *data, bool destroy);
 void	put_pixel_to_img(t_mlx *mlx, t_data *data, int x, int y, int color);
+int		get_pixel_from_txtr(t_txtr *txtr, int x, int y);
 
 /* manage inputs */
 void	key_input(int kp, t_data *data);
