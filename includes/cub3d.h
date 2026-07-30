@@ -6,7 +6,7 @@
 /*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/09 13:35:04 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/24 13:10:20 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/07/30 13:30:19 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,5 @@
 /* Exit */
 void	handle_exit(t_data *data, char *message);
 int		*mlx_exit(t_data *data);
-
 
 #endif

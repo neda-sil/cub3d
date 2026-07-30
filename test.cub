@@ -3,8 +3,8 @@ SO includes/imgs/so.xpm
 WE includes/imgs/we.xpm
 EA includes/imgs/ea.xpm
 
-F 123,23,43
-C 0,32,32
+F 122,0,200
+C 45,200,13
 
       11111111111111 111
       10000000000001 101

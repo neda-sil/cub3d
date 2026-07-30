@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 18:51:22 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/12 16:50:57 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:37:10 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	check_extension(char *file_name, char *ext, int n)
 	return (ft_strnstr(file_name + (ft_strlen(file_name) - n), ext, n));
 }
 
-/* checks if 'color' is written in the right format and returns the lengh of the number */
+/* checks if 'color' is in the right format, returns the lengh of the number */
 int	check_color(char *color)
 {
 	int	i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/29 14:04:19 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:38:20 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ static void	check_caracters_in_map(char *line, t_data *data, t_ryct *rycstng)
 	while (line[i])
 	{
 		if (line[i] != '1' && line[i] != '0'
-				&& line[i] != 'N' && line[i] != 'S'
-				&& line[i] != 'W' && line[i] != 'E'
-				&& line[i] != ' ' && line[i] != '\n')
-				handle_exit(data, UNIDENTIFIED_CHAR_MAP);
+			&& line[i] != 'N' && line[i] != 'S'
+			&& line[i] != 'W' && line[i] != 'E'
+			&& line[i] != ' ' && line[i] != '\n')
+			handle_exit(data, UNIDENTIFIED_CHAR_MAP);
 		else if (line[i] == 'N' || line[i] == 'S'
-				|| line[i] == 'W' || line[i] == 'E')
+			|| line[i] == 'W' || line[i] == 'E')
 		{
 			if (line[i] == 'S')
 				rycstng->y_dir = 1;

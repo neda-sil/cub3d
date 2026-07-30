@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/30 11:49:22 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/07/30 13:53:42 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 # define EAST 'E'
 
 /* Textures */
-#define NO 0
-#define SO 1
-#define WE 2
-#define EA 3
+#define NO	0
+#define SO	1
+#define WE	2
+#define EA	3
 
 /* Error messages */
 # define ARG_ERROR "Error: need one and only one arg\n"
@@ -36,12 +36,12 @@
 # define TEXTURE_EXTENSION "Error: wrong texture extension\n"
 # define BORDER_ERROR "Error: opened border\n"
 # define UNIDENTIFIED_CHAR_MAP "Error: unidentified character in the map\n"
-# define UNIDENTIFIED_CHAR_TEXTURE "Error: unidentified character in the textures\n"
+# define UNIDENTIFIED_CHAR_TEXTURE "Error: unknown character in textures\n"
 # define WRONG_RANGE "Error: wrong color range (must be between 0 and 255)\n"
 # define WRONG_ORDER_TEXTURE "Error: wrong params order for textures\n"
 # define WRONG_ORDER_COLOR "Error: wrong params order for colors\n"
 # define MULTIPLE_START "Error: multiple starting points in the map\n"
-# define CONSECUTIVE_NEWLINES "Error: consecutive newlines (check the last lines)\n"
+# define CONSECUTIVE_NEWLINES "Error: consecutive newlines\n"
 # define NO_PLAYER "Error: no player in map\n"
 # define NO_IMG "Error: image not found\n"
 
@@ -81,6 +81,7 @@ typedef struct s_ryct
 	double	dist_wall;
 	double	wall_x;
 	int		face;
+	int		moved;
 }			t_ryct;
 
 typedef struct s_txtr
@@ -94,6 +95,16 @@ typedef struct s_txtr
 	int		endian;
 	int		tex_x;
 }			t_txtr;
+
+typedef struct s_mov
+{
+	int		press_left;
+	int		press_right;
+	int		press_w;
+	int		press_s;
+	int		press_a;
+	int		press_d;
+}			t_mov;
 
 /* Main struct */
 typedef struct s_data
@@ -115,6 +126,7 @@ typedef struct s_data
 	t_mlx	mlx;
 	t_ryct	rycstng;
 	t_txtr	txtr[4];
+	t_mov	mov;
 }			t_data;
 
 #endif
