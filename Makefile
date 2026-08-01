@@ -37,9 +37,10 @@ FILES		=	src/main.c						\
 NAME		=	cub3D
 
 CC			=	cc
-FLAGS		=	-Wall -Werror -Wextra -lm
+FLAGS		=	-Wall -Werror -Wextra
+LM			=	-lm
 
-OBJS        =   $(FILES:src/%.c=$(OBJ_DIR)%.o)
+OBJS		=	$(FILES:src/%.c=$(OBJ_DIR)%.o)
 OBJ_DIR		=	objs/
 SRC_DIR		=	src/
 
@@ -71,7 +72,7 @@ $(NAME)		:	$(MLX_DIR) $(OBJS)
 	@printf "$(YELLOW)compiling Minilibx$(RESET)\n"
 	@make -C $(MLX_DIR) --no-print-directory
 	@printf "$(GREEN)Minilibx compiled\n$(YELLOW)compiling cub3D$(RESET)\n"
-	@$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -no-pie -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) $(LM) -no-pie -o $(NAME)
 	@printf "$(GREEN)cub3D compiled$(RESET)\n"
 
 $(OBJ_DIR)%.o	:	src/%.c
