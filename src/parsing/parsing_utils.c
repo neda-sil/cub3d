@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 18:51:22 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/08/01 22:38:53 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/01 22:41:34 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,12 @@ bool	check_border(char **map)
 
 void	check_dir(t_ryct **ryctng, char c)
 {
-
-			if (c == 'S')
-				(*ryctng)->y_dir = 1;
-			if (c == 'N')
-				(*ryctng)->y_dir = -1;
-			if (c == 'E')
-				(*ryctng)->x_dir = 1;
-			if (c == 'W')
-				(*ryctng)->x_dir = -1;
+	if (c == 'S')
+		(*ryctng)->y_dir = 1;
+	if (c == 'N')
+		(*ryctng)->y_dir = -1;
+	if (c == 'E')
+		(*ryctng)->x_dir = 1;
+	if (c == 'W')
+		(*ryctng)->x_dir = -1;
 }
