@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/30 13:53:42 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/08/01 22:10:32 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 # define EAST 'E'
 
 /* Textures */
-#define NO	0
-#define SO	1
-#define WE	2
-#define EA	3
+# define NO	0
+# define SO	1
+# define WE	2
+# define EA	3
 
 /* Error messages */
 # define ARG_ERROR "Error: need one and only one arg\n"

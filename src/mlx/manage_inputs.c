@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   manage_inputs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 15:07:49 by malaimo           #+#    #+#             */
-/*   Updated: 2026/07/30 11:57:09 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/08/01 22:18:26 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
 
 void	handle_no_events(t_data *data)
 {
@@ -80,7 +79,7 @@ void	key_input(int kp, t_data *data)
 		data->mov.press_a = 1;
 	if (kp == XK_d)
 		data->mov.press_d = 1;
-	return;
+	return ;
 }
 
 void	key_release(int kp, t_data *data)
@@ -100,5 +99,5 @@ void	key_release(int kp, t_data *data)
 	if (kp == XK_d)
 		data->mov.press_d = 0;
 	// launch_raycasting(data, &data->rycstng);
-	return;
+	return ;
 }

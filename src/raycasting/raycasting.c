@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 11:29:56 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/08/01 21:53:29 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/01 22:36:25 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	calculate_tex_x(t_data *data, t_ryct *ray)
 		data->txtr->tex_x = data->txtr[ray->face].width - 1;
 }
 
-static void	draw_background(t_data *data, t_ryct *ray, int i)
+static void	draw_background(t_data *data, t_ryct *ray, t_txtr *txtr, int i)
 {
 	int	start;
 	int	end;
@@ -38,16 +38,16 @@ static void	draw_background(t_data *data, t_ryct *ray, int i)
 	calculate_tex_x(data, ray);
 	y = 0;
 	while (y < start)
-		put_pixel_to_img(&data->mlx, data, i, y++, data->ceiling_color);
+		put_pixel_to_img(data, i, y++, data->ceiling_color);
 	while (y < end)
 	{
 		tex_y = (int)(((y - (data->screen_y / 2 - data->height_wall / 2))
-				/ data->height_wall) * data->txtr[ray->face].height);
-		color = get_pixel_from_txtr(&data->txtr[ray->face], data->txtr->tex_x, tex_y);
-		put_pixel_to_img(&data->mlx, data, i, y++, color);
+					/ data->height_wall) * txtr[ray->face].height);
+		color = get_pixel_from_txtr(&txtr[ray->face], txtr->tex_x, tex_y);
+		put_pixel_to_img(data, i, y++, color);
 	}
 	while (y < data->screen_y)
-		put_pixel_to_img(&data->mlx, data, i, y++, data->floor_color);
+		put_pixel_to_img(data, i, y++, data->floor_color);
 }
 
 void	launch_raycasting(t_data *data, t_ryct *ray)
@@ -65,7 +65,7 @@ void	launch_raycasting(t_data *data, t_ryct *ray)
 		ray->x_dir_ray = ray->x_dir + ray->x_camera * ray->camera_angle;
 		ray->y_dir_ray = ray->y_dir + ray->y_camera * ray->camera_angle;
 		data->height_wall = launch_ray(data, ray);
-		draw_background(data, ray, i);
+		draw_background(data, ray, data->txtr, i);
 		// printf("wall height = %f\n", data->height_wall);
 		i++;
 	}

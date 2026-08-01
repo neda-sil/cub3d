@@ -1,5 +1,6 @@
 #include "../../includes/cub3d.h"
 
+/*
 void	print_calculs(t_ryct *ray)
 {
 	printf("\nx_player = %f \n", ray->x_player);
@@ -24,8 +25,9 @@ void	print_calculs(t_ryct *ray)
 	printf("x_next_square = %f \n", ray->x_next_square);
 	printf("y_next_square = %f \n", ray->y_next_square);
 }
+*/
 
-int		check_wall(t_data *data, int y, int x)
+int	check_wall(t_data *data, int y, int x)
 {
 	if (y < 0 || x < 0)
 	{
@@ -65,7 +67,7 @@ int	advance_ray(t_data *data, t_ryct *ray)
 			direction = 1;
 		}
 		if (check_wall(data, ray->y_map, ray->x_map))
-			break;
+			break ;
 	}
 	return (direction);
 }
@@ -73,7 +75,7 @@ int	advance_ray(t_data *data, t_ryct *ray)
 double	get_wall_height(t_data *data, t_ryct *ray)
 {
 	double	height_wall;
-	int		direction; 
+	int		direction;
 
 	direction = advance_ray(data, ray);
 	ray->side = direction;
@@ -105,8 +107,8 @@ static void	know_side(t_ryct *ray)
 
 double	launch_ray(t_data *data, t_ryct	*ray)
 {
-	ray->x_length = fabs(1/ray->x_dir_ray);
-	ray->y_length = fabs(1/ray->y_dir_ray);
+	ray->x_length = fabs(1 / ray->x_dir_ray);
+	ray->y_length = fabs(1 / ray->y_dir_ray);
 	if (ray->x_dir_ray < 0)
 	{
 		ray->x_guide = -1;

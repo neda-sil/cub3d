@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/30 13:38:20 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/08/01 22:39:44 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,9 @@ static void	check_caracters_in_map(char *line, t_data *data, t_ryct *rycstng)
 		else if (line[i] == 'N' || line[i] == 'S'
 			|| line[i] == 'W' || line[i] == 'E')
 		{
-			if (line[i] == 'S')
-				rycstng->y_dir = 1;
-			if (line[i] == 'N')
-				rycstng->y_dir = -1;
-			if (line[i] == 'E')
-				rycstng->x_dir = 1;
-			if (line[i] == 'W')
-				rycstng->x_dir = -1;
 			if (pos == 1)
 				handle_exit(data, MULTIPLE_START);
+			check_dir(&rycstng, line[i]);
 			pos = 1;
 		}
 		i++;

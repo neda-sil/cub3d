@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minilx.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 15:50:24 by jdelmott          #+#    #+#             */
-/*   Updated: 2026/07/30 13:53:29 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/08/01 22:06:28 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	destroy_imgs(t_mlx *mlx, t_txtr *txtr);
 void	init_mlx(t_data *data, t_mlx *mlx);
 void	load_txtr(t_data *data, bool destroy);
-void	put_pixel_to_img(t_mlx *mlx, t_data *data, int x, int y, int color);
+void	put_pixel_to_img(t_data *data, int x, int y, int color);
 int		get_pixel_from_txtr(t_txtr *txtr, int x, int y);
 
 /* manage inputs */

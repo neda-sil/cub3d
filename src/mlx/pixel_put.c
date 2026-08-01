@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 14:13:59 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/30 11:57:36 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/01 22:20:27 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ int	get_pixel_from_txtr(t_txtr *txtr, int x, int y)
 	return (*(int *)pixel);
 }
 
-void	put_pixel_to_img(t_mlx *mlx, t_data *data, int x, int y, int color)
+void	put_pixel_to_img(t_data *data, int x, int y, int color)
 {
 	char	*pixel;
 
 	if (x < 0 || x >= data->screen_x || y < 0 || y >= data->screen_y)
 		return ;
-	pixel = mlx->addr + (y * mlx->line_len) + (x * (mlx->bpp / 8));
+	pixel = data->mlx.addr + (y * data->mlx.line_len)
+		+ (x * (data->mlx.bpp / 8));
 	*(int *)pixel = color;
 }
