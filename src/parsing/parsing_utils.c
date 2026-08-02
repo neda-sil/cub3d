@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 18:51:22 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/08/01 22:41:34 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/02 15:22:38 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	check_color(char *color)
 	int	i;
 
 	i = 0;
+	if (!color[0] || color[0] == '\n')
+		return (-2);
 	while (color[i] && i < 5)
 	{
 		if (!ft_isdigit(color[i]))

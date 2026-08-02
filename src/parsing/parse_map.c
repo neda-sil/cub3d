@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 13:53:26 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/08/01 22:39:44 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/02 15:44:53 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ void	parse_map(t_data *data)
 
 	line = NULL;
 	line = one_line_map(data);
+	if (ft_strlen(line) > INT_MAX / 100000)
+		handle_exit(data, MAP_TOO_BIG);
 	check_caracters_in_map(line, data, &data->rycstng);
 	data->map = ft_split_gc(line, '\n', &data->gc);
 	find_player_pos(data->map, &data->rycstng);

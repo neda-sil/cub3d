@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/08/01 22:10:32 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/02 15:37:37 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@
 # define WRONG_RANGE "Error: wrong color range (must be between 0 and 255)\n"
 # define WRONG_ORDER_TEXTURE "Error: wrong params order for textures\n"
 # define WRONG_ORDER_COLOR "Error: wrong params order for colors\n"
+# define WRONG_COLOR_NOTATION "Error : color needs to be in RGB (X,Y,Z)\n"
 # define MULTIPLE_START "Error: multiple starting points in the map\n"
 # define CONSECUTIVE_NEWLINES "Error: consecutive newlines\n"
 # define NO_PLAYER "Error: no player in map\n"
 # define NO_IMG "Error: image not found\n"
+# define MAP_TOO_BIG "Error: map is too big\n"
 
 typedef int	(*t_fn)(void);
 

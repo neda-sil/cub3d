@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:38:35 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/07/29 13:02:34 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/02 15:20:16 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ static void	put_color(int *color, char *line, char searched, t_data *data)
 			handle_exit(data, WRONG_RANGE);
 		i += pos + 1;
 	}
-	if (line[i])
-		handle_exit(data, UNIDENTIFIED_CHAR_TEXTURE);
+	if (line[i] || num != 3)
+		handle_exit(data, WRONG_COLOR_NOTATION);
 }
 
 void	parse_colors(t_data *data)
