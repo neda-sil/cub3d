@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 15:07:52 by malaimo           #+#    #+#             */
-/*   Updated: 2026/08/01 22:19:28 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/03 13:00:49 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	advance(t_data *data, t_ryct *ray)
 		ray->x_player = ray->x_player + ray->x_dir / 50;
 		ray->y_player = ray->y_player + ray->y_dir / 50;
 		ray->moved = 1;
-		// printf("player is now at [%f][%f]\n", ray->y_player, ray->x_player);
 	}
 }
 
@@ -42,7 +41,6 @@ void	go_back(t_data *data, t_ryct *ray)
 		ray->x_player = x;
 		ray->y_player = y;
 		ray->moved = 1;
-		// printf("player is now at [%f][%f]\n", ray->y_player, ray->x_player);
 	}
 }
 
@@ -58,7 +56,6 @@ void	go_left(t_data *data, t_ryct *ray)
 		ray->x_player = x;
 		ray->y_player = y;
 		ray->moved = 1;
-		// printf("player is now at [%f][%f]\n", ray->y_player, ray->x_player);
 	}
 }
 
@@ -74,6 +71,5 @@ void	go_right(t_data *data, t_ryct *ray)
 		ray->x_player = x;
 		ray->y_player = y;
 		ray->moved = 1;
-		// printf("player is now at [%f][%f]\n", ray->y_player, ray->x_player);
 	}
 }

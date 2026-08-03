@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage_inputs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 15:07:49 by malaimo           #+#    #+#             */
-/*   Updated: 2026/08/01 22:18:26 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/03 13:00:33 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	turn_left(t_ryct *ray)
 	ray->y_camera = ray->x_camera * sin(-0.01) + ray->y_camera * cos(-0.01);
 	ray->x_camera = x_temp;
 	ray->moved = 1;
-	// printf("player look at [%f][%f], camera look at [%f][%f]\n", ray->x_dir, ray->y_dir, ray->x_camera, ray->y_camera);
 }
 
 void	turn_right(t_ryct *ray)
@@ -60,7 +59,6 @@ void	turn_right(t_ryct *ray)
 	ray->y_camera = ray->x_camera * sin(0.01) + ray->y_camera * cos(0.01);
 	ray->x_camera = x_temp;
 	ray->moved = 1;
-	// printf("player look at [%f][%f], camera look at [%f][%f]\n", ray->x_dir, ray->y_dir, ray->x_camera, ray->y_camera);
 }
 
 void	key_input(int kp, t_data *data)
@@ -98,6 +96,5 @@ void	key_release(int kp, t_data *data)
 		data->mov.press_a = 0;
 	if (kp == XK_d)
 		data->mov.press_d = 0;
-	// launch_raycasting(data, &data->rycstng);
 	return ;
 }

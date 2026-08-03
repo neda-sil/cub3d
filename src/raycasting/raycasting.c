@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 11:29:56 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/08/01 22:36:25 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/03 13:02:57 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	launch_raycasting(t_data *data, t_ryct *ray)
 		ray->y_dir_ray = ray->y_dir + ray->y_camera * ray->camera_angle;
 		data->height_wall = launch_ray(data, ray);
 		draw_background(data, ray, data->txtr, i);
-		// printf("wall height = %f\n", data->height_wall);
 		i++;
 	}
 }

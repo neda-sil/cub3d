@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/08/02 15:37:37 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/03 13:02:42 by malaimo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ typedef struct s_ryct
 	double	y_dir_ray;
 	double	x_length;
 	double	y_length;
-	double	x_next_square;
-	double	y_next_square;
+	double	x_nxs;
+	double	y_nxs;
 	int		x_guide;
 	int		y_guide;
 	int		side;

@@ -1,31 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calculs.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/03 13:01:01 by malaimo           #+#    #+#             */
+/*   Updated: 2026/08/03 13:02:47 by malaimo          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/cub3d.h"
-
-/*
-void	print_calculs(t_ryct *ray)
-{
-	printf("\nx_player = %f \n", ray->x_player);
-	printf("y_player = %f \n", ray->y_player);
-
-	printf("x_dir_player = %f \n", ray->x_dir);
-	printf("y_dir_player = %f \n", ray->y_dir);
-
-	printf("x_map = %d \n", ray->x_map);
-	printf("y_map = %d \n", ray->y_map);
-
-	printf("x_camera = %f \n", ray->x_camera);
-	printf("y_camera = %f \n", ray->y_camera);
-	printf("camera angle = %f \n", ray->camera_angle);
-
-	printf("x_dir_ray = %f \n", ray->x_dir_ray);
-	printf("y_dir_ray = %f \n", ray->y_dir_ray);
-
-	printf("x_length = %f \n", ray->x_length);
-	printf("y_length = %f \n", ray->y_length);
-
-	printf("x_next_square = %f \n", ray->x_next_square);
-	printf("y_next_square = %f \n", ray->y_next_square);
-}
-*/
 
 int	check_wall(t_data *data, int y, int x)
 {
@@ -54,16 +39,16 @@ int	advance_ray(t_data *data, t_ryct *ray)
 
 	while (1)
 	{
-		if (ray->y_next_square <= ray->x_next_square)
+		if (ray->y_nxs <= ray->x_nxs)
 		{
 			ray->y_map += ray->y_guide;
-			ray->y_next_square += ray->y_length;
+			ray->y_nxs += ray->y_length;
 			direction = 0;
 		}
 		else
 		{
 			ray->x_map += ray->x_guide;
-			ray->x_next_square += ray->x_length;
+			ray->x_nxs += ray->x_length;
 			direction = 1;
 		}
 		if (check_wall(data, ray->y_map, ray->x_map))
@@ -80,17 +65,16 @@ double	get_wall_height(t_data *data, t_ryct *ray)
 	direction = advance_ray(data, ray);
 	ray->side = direction;
 	if (direction == 0)
-		ray->dist_wall = ray->y_next_square - ray->y_length;
+		ray->dist_wall = ray->y_nxs - ray->y_length;
 	else
-		ray->dist_wall = ray->x_next_square - ray->x_length;
-	// printf("wall met at [%d][%d] : ", ray->y_map, ray->x_map);
+		ray->dist_wall = ray->x_nxs - ray->x_length;
 	if (ray->side == 0)
 		ray->wall_x = ray->x_player + ray->dist_wall * ray->x_dir_ray;
 	else
 		ray->wall_x = ray->y_player + ray->dist_wall * ray->y_dir_ray;
 	ray->wall_x -= floor(ray->wall_x);
 	if ((ray->side == 0 && ray->y_guide == 1)
-			|| (ray->side == 1 && ray->x_guide == -1))
+		|| (ray->side == 1 && ray->x_guide == -1))
 		ray->wall_x = 1.0 - ray->wall_x;
 	height_wall = data->screen_y / ray->dist_wall;
 	return (height_wall);
@@ -115,24 +99,23 @@ double	launch_ray(t_data *data, t_ryct	*ray)
 	if (ray->x_dir_ray < 0)
 	{
 		ray->x_guide = -1;
-		ray->x_next_square = (ray->x_player - (double)ray->x_map) * ray->x_length;
+		ray->x_nxs = (ray->x_player - (double)ray->x_map) * ray->x_length;
 	}
 	else
 	{
 		ray->x_guide = 1;
-		ray->x_next_square = ((double)ray->x_map + 1.0 - ray->x_player) * ray->x_length;
+		ray->x_nxs = ((double)ray->x_map + 1.0 - ray->x_player) * ray->x_length;
 	}
 	if (ray->y_dir_ray < 0)
 	{
 		ray->y_guide = -1;
-		ray->y_next_square = (ray->y_player - (double)ray->y_map) * ray->y_length;
+		ray->y_nxs = (ray->y_player - (double)ray->y_map) * ray->y_length;
 	}
 	else
 	{
 		ray->y_guide = 1;
-		ray->y_next_square = ((double)ray->y_map + 1.0 - ray->y_player) * ray->y_length;
+		ray->y_nxs = ((double)ray->y_map + 1.0 - ray->y_player) * ray->y_length;
 	}
 	know_side(ray);
-	// print_calculs(ray);
 	return (get_wall_height(data, ray));
 }
