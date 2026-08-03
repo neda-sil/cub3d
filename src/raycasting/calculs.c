@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   calculs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/03 13:01:01 by malaimo           #+#    #+#             */
-/*   Updated: 2026/08/03 13:02:47 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/08/03 13:47:14 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,12 @@
 int	check_wall(t_data *data, int y, int x)
 {
 	if (y < 0 || x < 0)
-	{
-		printf("valeur corrompu");
-		exit (0);
-	}
+		handle_exit(data, "Error: corrupted data\n");
 	if (data->map[y][x] != '1' && data->map[y][x] != '0'
 				&& data->map[y][x] != 'N' && data->map[y][x] != 'S'
 				&& data->map[y][x] != 'W' && data->map[y][x] != 'E'
 				&& data->map[y][x] != ' ' && data->map[y][x] != '\n')
-	{
-		printf("erreur map");
-		exit (0);
-	}
+		handle_exit(data, "Error: map error\n");
 	if (data->map[y][x] == '1' || data->map[y][x] == ' ')
 		return (1);
 	else

@@ -1,37 +1,101 @@
-Je vais ecrire ce que je fais ici comme ca tu pourras suivre a ton prochain pull
+*This project has been created as part of the 42 curriculum by malaimo, neda-sil.
 
-- j'ai fait une regle dans le Makefile pour qu'on puisse importer la mlx sans avoir a faire un make all (make mlx)
+# cub3D
 
-- les premieres lignes du main sont de simples premieres verifications : nbr d'arg, extension .cub et si le fd ouvre ou non
+## Description
 
-- la fonction "parse_texture" s'occupe de chercher les textures NO, SO, WE, ea
+**cub3D** is a raycasting engine written in C, inspired by the pseudo-3D rendering
+technique used in *Wolfenstein 3D*. The goal of the project is to build, from
+scratch and without any external 3D graphics library, a first-person 3D view of
+a 2D maze described in a custom map file.
 
-- j'ai fait comme j'ai pu pour le parse de F et C, mais normalement ca fonctionne j'ai juste verifier que ce soit bien F et C dans l'ordre, puis j'ai verifier que ca soit bien separer par des virgules et j'ai laisser le atoi s'occuper de se debarasser des virgules
+The project relies on the **MinilibX** graphics library for window management
+and pixel-level display, and on a **raycasting algorithm** (based on the
+Digital Differential Analysis method) to project a 2D grid map into a real-time
+3D perspective.
 
-- pour le parse de la map, j'ai tout mit sur une ligne et apres j'ai fait un ft_split
-  et par rapport a la map, il faut qu'on se decide sur si on gere les tabs comme des espaces ou si on met que c'est une erreur
+Main features:
+- Custom `.cub` map file parsing, with full validation of:
+  - the four wall textures (North, South, East, West)
+  - the floor and ceiling colors (RGB)
+  - the map itself (valid characters, closed borders, single player spawn point)
+- A raycasting engine computing, for each column of the screen, the distance to
+  the nearest wall and the exact point of impact
+- Textured walls, with the correct texture selected depending on which face of
+  the wall was hit (North/South/East/West), and correct texture orientation
+- Solid-colored floor and ceiling
+- Real-time player movement (forward/backward/strafe) and rotation (view
+  direction), with collision detection against walls
+- A custom tracked memory allocator (a lightweight garbage-collector-like
+  system) used throughout the parsing to guarantee clean memory management,
+  including on error paths
 
-- il reste encore quelques verifs a faire, mais jusqu'ici y a aucun leaks mdrr
+## Instructions
 
-- le parsing est completement fini, aucun leaks a deplorer, si tu as besoin d'explications, on verra ca ensemble quand on se voit, je te laisse faire le parsing des signaux !
+### Compilation
 
-quand j'y pense, je te passe cette fonction (si jamais tu l'as pas) pour avoir les codes de touches :
+```make```
 
-int    print_key(int key, void *param)
-{
-    (void)param;
-    ft_printf("keycode : %d\n", key);
-    return (0);
-}
+This will:
+- clone and build **MinilibX** if it is not already present
+- build the project's internal libraries (`libft`, `get_next_line`, `ft_printf`)
+- compile the `cub3D` executable
 
-int    main(void)
-{
-    void *mlx;
-    void *win;
+Other available targets:
 
-    mlx = mlx_init();
-    win = mlx_new_window(mlx, 400, 200, "test keys");
-    mlx_key_hook(win, print_key, NULL);
-    mlx_loop(mlx);
-}
+```
+make clean    # remove object files
+make fclean   # remove object files and the executable
+make re       # fclean + make
+```
 
+### Execution
+
+```./cub3D <path_to_map.cub>```
+
+The program expects a single argument: the path to a valid `.cub` map file.
+
+### Map file format (`.cub`)
+
+A valid map file must define, in any order, before the map itself:
+
+```
+NO <path_to_texture>      # North wall texture (.xpm)
+SO <path_to_texture>      # South wall texture (.xpm)
+WE <path_to_texture>      # West wall texture (.xpm)
+EA <path_to_texture>      # East wall texture (.xpm)
+
+F <R>,<G>,<B>              # Floor color
+C <R>,<G>,<B>               # Ceiling color
+```
+
+followed by the map layout itself, using:
+- `1` for a wall
+- `0` for an empty (walkable) space
+- `N`, `S`, `E`, `W` for the player's starting position and orientation
+- spaces for space outside the map
+
+The map must be surrounded by walls (no leaks), and must contain exactly one
+player starting position.
+
+### Controls
+
+| Key            | Action                     |
+|----------------|-----------------------------|
+| `W`            | Move forward                |
+| `S`            | Move backward                |
+| `A`            | Strafe left                  |
+| `D`            | Strafe right                 |
+| `←` / `→`      | Turn the camera left/right   |
+| `ESC` / close window | Quit the program       |
+
+## Resources
+
+- [Lode's Computer Graphics Tutorial – Raycasting](https://lodev.org/cgtutor/raycasting.html) — the reference article explaining the Digital Differential Analysis (DDA) algorithm used to compute wall distances and texture mapping
+- [42 MiniLibX documentation and source (42Paris fork)](https://github.com/42Paris/minilibx-linux)
+- [Wolfenstein 3D](https://en.wikipedia.org/wiki/Wolfenstein_3D) — the original game that popularized the raycasting rendering technique this project is inspired by
+- The subject and evaluation sheet of the *cub3D* project, provided by 42
+
+### AI usage
+
+Ai has been used in order to comprehend the subject and the mathematicals formulas.
