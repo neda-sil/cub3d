@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   manage_inputs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 15:07:49 by malaimo           #+#    #+#             */
-/*   Updated: 2026/08/03 13:00:33 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/08/04 22:40:19 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	turn_left(t_ryct *ray)
 {
 	double	x_temp;
 
-	x_temp = ray->x_dir * cos(-0.01) - ray->y_dir * sin(-0.01);
-	ray->y_dir = ray->x_dir * sin(-0.01) + ray->y_dir * cos(-0.01);
+	x_temp = ray->x_dir * cos(-0.022) - ray->y_dir * sin(-0.022);
+	ray->y_dir = ray->x_dir * sin(-0.022) + ray->y_dir * cos(-0.022);
 	ray->x_dir = x_temp;
-	x_temp = ray->x_camera * cos(-0.01) - ray->y_camera * sin(-0.01);
-	ray->y_camera = ray->x_camera * sin(-0.01) + ray->y_camera * cos(-0.01);
+	x_temp = ray->x_camera * cos(-0.022) - ray->y_camera * sin(-0.022);
+	ray->y_camera = ray->x_camera * sin(-0.022) + ray->y_camera * cos(-0.022);
 	ray->x_camera = x_temp;
 	ray->moved = 1;
 }
@@ -52,11 +52,11 @@ void	turn_right(t_ryct *ray)
 {
 	double	x_temp;
 
-	x_temp = ray->x_dir * cos(0.01) - ray->y_dir * sin(0.01);
-	ray->y_dir = ray->x_dir * sin(0.01) + ray->y_dir * cos(0.01);
+	x_temp = ray->x_dir * cos(0.022) - ray->y_dir * sin(0.022);
+	ray->y_dir = ray->x_dir * sin(0.022) + ray->y_dir * cos(0.022);
 	ray->x_dir = x_temp;
-	x_temp = ray->x_camera * cos(0.01) - ray->y_camera * sin(0.01);
-	ray->y_camera = ray->x_camera * sin(0.01) + ray->y_camera * cos(0.01);
+	x_temp = ray->x_camera * cos(0.022) - ray->y_camera * sin(0.022);
+	ray->y_camera = ray->x_camera * sin(0.022) + ray->y_camera * cos(0.022);
 	ray->x_camera = x_temp;
 	ray->moved = 1;
 }
