@@ -6,7 +6,7 @@
 /*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 15:38:35 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/08/02 15:20:16 by neda-sil         ###   ########.fr       */
+/*   Updated: 2026/08/04 22:34:32 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ void	parse_textures(t_data *data)
 	while (i < 4)
 	{
 		while (!line || line[0] == '\n')
+		{
 			line = ft_gnl_gc(data->fd, &data->gc);
+		if (!line)
+			handle_exit(data, EMPTY_FILE);
+		}
 		if (i == 0)
 			put_textures(&data->no, line, "NO", data);
 		if (i == 1)

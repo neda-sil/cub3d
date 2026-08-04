@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: malaimo <malaimo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: neda-sil <neda-sil@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/10 00:00:14 by neda-sil          #+#    #+#             */
-/*   Updated: 2026/08/03 13:02:42 by malaimo          ###   ########.fr       */
+/*   Updated: 2026/08/04 22:31:53 by neda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 # define NO_PLAYER "Error: no player in map\n"
 # define NO_IMG "Error: image not found\n"
 # define MAP_TOO_BIG "Error: map is too big\n"
+# define EMPTY_FILE "Error: file is empty\n"
 
 typedef int	(*t_fn)(void);
 
